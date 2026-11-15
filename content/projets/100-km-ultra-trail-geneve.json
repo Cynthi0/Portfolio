@@ -1,0 +1,44 @@
+{
+  "theme": "V",
+  "titre": "100 km ultra-trail débarque à Genève",
+  "slug": "100-km-ultra-trail-geneve",
+  "client": "Trail Run Évasion Rhône",
+  "annee": 2026,
+  "categorie": "Reels",
+  "role": "Storyboard, montage",
+  "outils": "Premiere Pro",
+  "image": "p/rer100-poster.webp",
+  "video": "films/rer100-film.mp4",
+  "apercu": "films/rer100-loop.mp4",
+  "format": "horizontal",
+  "youtube": "https://youtu.be/b6IrVt_Yeww",
+  "instagram": "https://www.instagram.com/reel/DffROKNsVtp/",
+  "rushes": [
+    "p/rer100-rush-1.webp",
+    "p/rer100-rush-2.webp",
+    "p/rer100-rush-3.webp",
+    "p/rer100-rush-4.webp",
+    "p/rer100-rush-5.webp"
+  ],
+  "besoin": "Promouvoir le lancement d’un nouveau format d’ultra-trail de 100 km dans le canton de Genève à travers une vidéo dynamique, reprenant les codes du contenu sportif sur les réseaux sociaux et mettant en scène les ambassadeurs de la distance.",
+  "realisation": "Conception du storyboard et montage vidéo. Développement d’un storytelling immersif valorisant le défi sportif, les émotions liées à une telle distance et la beauté des paysages naturels préservés du canton de Genève.",
+  "resultat_chiffre": "18,3 K",
+  "resultat_texte": "vues et 443 mentions « J’aime » en une semaine sur Instagram. Diffusion accompagnée d’une communication croisée avec les ambassadeurs et l’ensemble des partenaires de l’événement.",
+  "boutons": [
+    {
+      "texte": "Voir sur YouTube",
+      "lien": "https://youtu.be/b6IrVt_Yeww",
+      "style": "rouge",
+      "nouvel_onglet": true
+    },
+    {
+      "texte": "Voir sur Instagram",
+      "lien": "https://www.instagram.com/reel/DffROKNsVtp/",
+      "style": "contour",
+      "nouvel_onglet": true
+    }
+  ],
+  "visible": true,
+  "vignette": "p/vt-rer100.webp",
+  "ordre": 40
+}

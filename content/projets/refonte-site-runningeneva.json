@@ -1,0 +1,64 @@
+{
+  "theme": "D",
+  "titre": "Refonte du site Runningeneva",
+  "slug": "refonte-site-runningeneva",
+  "client": "Runningeneva",
+  "annee": 2026,
+  "categorie": "Sites web",
+  "role": "UX, UI, arborescence, templates",
+  "outils": "Figma, WordPress",
+  "image": "p/rg-hero.webp",
+  "supports": [],
+  "palette": [
+    "#0E0F54",
+    "#D9F20B",
+    "#E54E4E",
+    "#3A2618",
+    "#F0EEE9"
+  ],
+  "typo": "Tanker",
+  "planche_texte": "Refonte du site internet Runningeneva en cohérence avec sa nouvelle identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant le calendrier annuel des courses.",
+  "ecrans": [
+    {
+      "titre": "Accueil",
+      "image": "p/rg-accueil.webp"
+    },
+    {
+      "titre": "Événements",
+      "image": "p/rg-evenements.webp"
+    },
+    {
+      "titre": "Coaching",
+      "image": "p/rg-coaching.webp"
+    },
+    {
+      "titre": "Actualités",
+      "image": "p/rg-actualites.webp"
+    },
+    {
+      "titre": "Collaboration",
+      "image": "p/rg-collaboration.webp"
+    }
+  ],
+  "besoin": "Moderniser le site internet en cohérence avec la nouvelle identité graphique de Runningeneva. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant le calendrier annuel des courses.",
+  "realisation": "Structuration des contenus et conception des parcours utilisateurs (UX) pour faciliter l’accès aux informations. Déclinaison de la nouvelle identité graphique dans une interface digitale intuitive (UI). Création de l’arborescence, de l’architecture des pages et des templates sur Figma. Préparation de la structure pour l’intégration WordPress, réalisée par une agence partenaire.",
+  "resultat_chiffre": "1 mois",
+  "resultat_texte": "Un site repensé, plus intuitif et fonctionnel, réalisé en 1 mois de la définition du projet à sa mise en ligne.",
+  "boutons": [
+    {
+      "texte": "Voir le site",
+      "lien": "https://runningeneva.ch/",
+      "style": "rouge",
+      "nouvel_onglet": true
+    },
+    {
+      "texte": "Voir l’annonce sur LinkedIn",
+      "lien": "https://www.linkedin.com/feed/update/urn:li:activity:7449335606528077824",
+      "style": "contour",
+      "nouvel_onglet": true
+    }
+  ],
+  "visible": true,
+  "typo_texte": "Poppins",
+  "ordre": 100
+}

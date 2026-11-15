@@ -1,0 +1,57 @@
+{
+  "theme": "D",
+  "titre": "Refonte du site Geneva Urban Trail",
+  "slug": "refonte-site-geneva-urban-trail",
+  "client": "Geneva Urban Trail",
+  "annee": 2026,
+  "categorie": "Sites web",
+  "role": "UX, UI, arborescence, templates",
+  "outils": "Figma, WordPress",
+  "image": "p/gut-hero.webp",
+  "supports": [],
+  "palette": [
+    "#EE6336",
+    "#00A184",
+    "#81D4DA",
+    "#FEBE2D",
+    "#7D7DBD"
+  ],
+  "planche_texte": "Refonte du site internet Geneva Urban Trail en cohérence avec son identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant l’esprit et les différents formats de la course.",
+  "ecrans": [
+    {
+      "titre": "Accueil",
+      "image": "p/gut-accueil.webp"
+    },
+    {
+      "titre": "Événement",
+      "image": "p/gut-evenement.webp"
+    },
+    {
+      "titre": "Épreuves",
+      "image": "p/gut-epreuves.webp"
+    },
+    {
+      "titre": "Infos pratiques",
+      "image": "p/gut-infos.webp"
+    },
+    {
+      "titre": "Entreprises",
+      "image": "p/gut-entreprises.webp"
+    }
+  ],
+  "besoin": "Moderniser le site internet en cohérence avec l’identité graphique de Geneva Urban Trail. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant l’esprit et les différents formats de la course.",
+  "realisation": "Structuration des contenus et conception des parcours utilisateurs (UX) pour faciliter l’accès aux informations. Déclinaison de l’identité graphique dans une interface digitale intuitive (UI). Création de l’arborescence, de l’architecture des pages et des templates sur Figma. Préparation de la structure pour l’intégration WordPress, réalisée par une agence partenaire.",
+  "resultat_chiffre": "1 mois",
+  "resultat_texte": "Un site repensé, plus intuitif et fonctionnel, réalisé en 1 mois de la définition du projet à sa mise en ligne.",
+  "boutons": [
+    {
+      "texte": "Voir le site",
+      "lien": "https://geneva-urban-trail.ch/",
+      "style": "rouge",
+      "nouvel_onglet": true
+    }
+  ],
+  "visible": true,
+  "typo": "Bungee",
+  "ordre": 110
+}

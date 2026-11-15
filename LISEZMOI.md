@@ -58,14 +58,16 @@ Seules les personnes qui ont accès à votre dépôt GitHub peuvent modifier le 
 ## Utiliser l'administration
 
 - **Pages du site** : l'accueil section par section (ouverture, outils, projets, services, à propos), les témoignages, le contact, les sections ajoutées et les réglages généraux.
-- **Projets** : les trois thèmes et tous vos projets. Glissez un projet pour changer l'ordre. Les trois premiers de chaque thème s'affichent sur l'accueil.
+- **Projets photo / Projets vidéo / Projets design** : chaque projet a sa propre fiche, avec seulement les champs utiles à son thème, et un **aperçu de la page à droite**. Les numéros rouges de l'aperçu (②, ③, ④…) correspondent aux sections du formulaire. Cliquez sur **Nouveau** pour ajouter un projet. L'ordre se règle avec le champ **Ordre** (10, 20, 30…).
+- **Bannières et thèmes** : nom, phrase et bannière (image ou vidéo) des pages Photo, Vidéo et Design.
 - **Boutons** : presque chaque bloc a une liste « Boutons ». Ajoutez-en autant que vous voulez, choisissez le style (rouge, contour, lien souligné) et la destination (`#contact`, `#photo`, `#projet-portraits-trail`, `https://instagram.com/…`).
 - **Clients** : dans **Témoignages et clients › Logos clients**, ajoutez, supprimez ou réordonnez les logos du bandeau « Ils me font confiance ».
 - **Bannières** : dans **Projets › Les 3 thèmes**, changez l'image ou la vidéo de fond de chaque thème (et son image d'attente).
 - **Projets mis en avant** : cochez **Mettre en avant** sur un projet pour qu'il passe en premier dans son thème (accueil, molette, grille). Sinon, l'ordre de la liste fait foi.
 - **Logo et icône d'onglet** : dans **Réglages généraux**, déposez votre logo (il remplace le logo texte) et votre favicon.
 - **Tous les petits textes fixes** (« Le besoin », « Voir le film », « Envoyer », libellés du formulaire…) : **Réglages généraux › Textes du site à remplacer**. Recopiez le texte exact, puis le nouveau.
-- **Sections ajoutées** : créez un nouveau bloc (titre, texte, image, boutons), choisissez sa couleur et son emplacement sur l'accueil. Donnez-lui une ancre (par ex. `tarifs`) pour qu'un bouton `#tarifs` y mène.
+- **➕ Sections en plus** : ajoutez un bloc sur l'accueil **ou sur n'importe quelle page** (Photo, Vidéo, Design, À propos, toutes les pages projets). Pour un seul projet, utilisez la partie ⑥ « Sections en plus » de sa fiche.
+- **Sections ajoutées (détail)** : créez un nouveau bloc (titre, texte, image, boutons), choisissez sa couleur et son emplacement sur l'accueil. Donnez-lui une ancre (par ex. `tarifs`) pour qu'un bouton `#tarifs` y mène.
 - **Médias** : dans chaque champ image ou vidéo, cliquez sur **Choisir une image**, puis **Envoyer** pour ajouter un fichier depuis votre ordinateur. Tout est rangé dans `media/uploads`.
 - Cliquez sur **Publier** → **Publier maintenant**. Le site en ligne se met à jour tout seul en 1 à 2 minutes.
 

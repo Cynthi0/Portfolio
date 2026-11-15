@@ -1,0 +1,15 @@
+{
+  "titre1": "Capter les émotions",
+  "titre2": "en mouvement.",
+  "texte": "Photographie, vidéo, montage, création visuelle et web au service des acteurs locaux qui font vivre et rayonner le canton de Genève.",
+  "invite": "Moteur… action !",
+  "lieu": "La rade · Genève",
+  "boutons": [
+    {
+      "texte": "Voir mes réalisations",
+      "lien": "#projets",
+      "style": "rouge",
+      "nouvel_onglet": false
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "etiquette": "Services",
+  "titre": "Vos besoins",
+  "accent": "prennent vie",
+  "texte": "Des instants à capturer, des histoires à raconter ? Échangeons sur vos projets afin de leur donner vie ensemble.",
+  "boutons": [],
+  "cartes": [
+    {
+      "theme": "P",
+      "image": "p/jma-00.webp",
+      "texte": "Des images qui mettent en valeur vos événements, leurs acteurs et les instants qui les rendent uniques.",
+      "points": [
+        "Photographie sportive et événementielle",
+        "Conférences, séminaires et événements professionnels",
+        "Portraits d’intervenants et photos d’équipe",
+        "Sélection, retouche et traitement des images"
+      ],
+      "bouton_devis": "Me contacter",
+      "lien_projets": "Voir les projets photo",
+      "boutons": []
+    },
+    {
+      "theme": "V",
+      "image": "p/svc-video.webp",
+      "texte": "Du mouvement, du rythme et des émotions : des vidéos pensées pour faire revivre vos événements et marquer les esprits.",
+      "points": [
+        "Aftermovies sportifs et événementiels",
+        "Reels et formats courts pour les réseaux sociaux",
+        "Interviews et vidéos promotionnelles",
+        "Montage, étalonnage et motion design"
+      ],
+      "bouton_devis": "Me contacter",
+      "lien_projets": "Voir les projets vidéo",
+      "boutons": []
+    },
+    {
+      "theme": "D",
+      "image": "b/design-banner.webp",
+      "texte": "Une identité claire et cohérente, de l'affiche au site web.",
+      "points": [
+        "Logos et identités visuelles",
+        "Affiches, flyers et programmes",
+        "Visuels pour les réseaux sociaux",
+        "Sites web WordPress"
+      ],
+      "bouton_devis": "Me contacter",
+      "lien_projets": "Voir les projets design",
+      "boutons": []
+    }
+  ]
+}

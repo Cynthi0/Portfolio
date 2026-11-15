@@ -30,6 +30,92 @@ const ICONES = ['pinceau', 'reglages', 'montage', 'motion', 'appareil', 'pocket'
 const IMG = (label, name, hint) => ({ label, name, widget: 'image', required: false, hint: hint || 'JPG ou WebP, 2000 px de large maximum, idéalement moins de 500 Ko.', choose_url: false });
 const VIDEO_AIDE = 'Format .mp4, 25 Mo maximum (limite de Cloudflare). Exportez en H.264, 1080p, environ 8 Mbit/s.';
 
+
+// ---------- projets : une collection par thème, un fichier par projet ----------
+const SEC = (n, t) => ({ label: `${n}  ${t}`, name: `_sec${n.charCodeAt(0)}`, widget: 'section', required: false });
+const PROJETS = (cle, label, sing, desc) => {
+  const commun1 = [
+    SEC('①', 'Affichage'),
+    { label: 'Afficher ce projet sur le site', name: 'visible', widget: 'boolean', default: true },
+    { label: 'Mettre en avant (premier de son thème, sur l’accueil et dans la grille)', name: 'en_avant', widget: 'boolean', default: false, required: false },
+    { label: 'Ordre (plus petit = plus haut dans la liste)', name: 'ordre', widget: 'number', value_type: 'int', default: 500, required: false, hint: 'Ex. 10, 20, 30… Laissez un écart pour pouvoir glisser un projet entre deux.' },
+    { label: 'Thème', name: 'theme', widget: 'hidden', default: cle },
+    SEC('②', 'En-tête de la page (grande image + titre)'),
+    { label: 'Titre du projet', name: 'titre', widget: 'string' },
+    { label: 'Client', name: 'client', widget: 'string', required: false },
+    { label: 'Année', name: 'annee', widget: 'number', value_type: 'int', default: 2026 },
+    { label: 'Catégorie (petite étiquette, sert aux filtres)', name: 'categorie', widget: 'string', required: false, hint: cle === 'P' ? 'Ex. Sport, Événementiel' : cle === 'V' ? 'Ex. Aftermovies, Reels' : 'Ex. Sites web, Identités' },
+    IMG('Grande image de l’en-tête', 'image', 'JPG ou WebP, 2000 px de large, moins de 500 Ko.'),
+    IMG('Vignette dans la grille (facultatif)', 'vignette', 'Vide = la grande image.'),
+    { label: 'Votre rôle', name: 'role', widget: 'string', required: false, hint: 'Ex. Prise de vue, retouche' },
+    { label: 'Outils utilisés (séparés par des virgules)', name: 'outils', widget: 'string', required: false, hint: 'Ex. Lightroom, Photoshop' },
+    { label: 'Adresse de la page (identifiant)', name: 'slug', widget: 'string', required: false, pattern: ['^[a-z0-9-]*$', 'Minuscules, chiffres et tirets seulement'], hint: 'Ex. trail-du-grand-geneve → cynthia-inmotion.ch/projets/trail-du-grand-geneve. Vide = calculée depuis le titre.' },
+  ];
+  const recit = [
+    SEC('③', 'Le récit (trois colonnes sous l’en-tête)'),
+    { label: '01 · Le besoin', name: 'besoin', widget: 'text', required: false },
+    { label: '02 · La réalisation', name: 'realisation', widget: 'text', required: false },
+    { label: '03 · Le résultat : grand chiffre (facultatif)', name: 'resultat_chiffre', widget: 'string', required: false, hint: 'Ex. 18,3 K, +40 %' },
+    { label: '03 · Le résultat : texte', name: 'resultat_texte', widget: 'text', required: false },
+    BOUTONS('Boutons sous le récit (YouTube, Instagram, site…)'),
+  ];
+  const extra = [
+    SEC('⑥', 'Sections en plus sur cette page (facultatif)'),
+    { label: 'Sections en plus', name: 'sections', widget: 'list', required: false, collapsed: true, label_singular: 'section', summary: '{{fields.titre}} {{fields.accent}}', hint: 'Un bloc libre (titre, texte, image, boutons) affiché seulement sur ce projet, avant l’encadré de contact.', fields: [
+      { label: 'Afficher', name: 'visible', widget: 'boolean', default: true },
+      { label: 'Couleur de fond', name: 'fond', widget: 'select', default: 'creme', options: [{ label: 'Crème', value: 'creme' }, { label: 'Beige', value: 'beige' }, { label: 'Bleu nuit', value: 'nuit' }, { label: 'Vert-gris', value: 'vert' }] },
+      ETIQ, TITRE, ACCENT,
+      { label: 'Texte', name: 'texte', widget: 'text', required: false },
+      IMG('Image (facultative)', 'image'), BOUTONS()] },
+  ];
+  const parTheme = {
+    P: [
+      SEC('④', 'La série photo'),
+      { label: 'Photos de la série', name: 'galerie', widget: 'list', required: false, collapsed: true, label_singular: 'photo', field: IMG('Photo', 'image'), hint: 'Ajoutez autant de photos que vous voulez ; glissez-les pour changer l’ordre. Elles s’affichent par pages de 6.' },
+      IMG('Avant retouche (facultatif)', 'avant', 'Le comparateur avant / après apparaît si les deux photos sont remplies.'),
+      IMG('Après retouche (facultatif)', 'apres'),
+    ],
+    V: [
+      SEC('④', 'Le film'),
+      { label: 'Format du film', name: 'format', widget: 'select', default: 'horizontal', options: [{ label: 'Horizontal 16:9 (YouTube, aftermovie)', value: 'horizontal' }, { label: 'Vertical 9:16 (Reel, story)', value: 'vertical' }] },
+      { label: 'Lien YouTube (le film complet en pleine qualité)', name: 'youtube', widget: 'string', required: false, hint: 'Ex. https://youtu.be/…' },
+      { label: 'Lien Instagram (facultatif)', name: 'instagram', widget: 'string', required: false },
+      { label: 'Fichier du film .mp4 (moins de 25 Mo)', name: 'video', widget: 'file', required: false, choose_url: false, hint: VIDEO_AIDE },
+      { label: 'Extrait muet en boucle, 5 à 10 s (vignette et haut de page)', name: 'apercu', widget: 'file', required: false, choose_url: false, hint: 'Moins de 2 Mo. Vide = le film.' },
+      { label: 'Version haute qualité pour le plein écran (facultatif)', name: 'video_hd', widget: 'file', required: false, choose_url: false },
+      { label: 'Diffusion (facultatif)', name: 'diffusion', widget: 'string', required: false, hint: 'Ex. Instagram, avec les partenaires' },
+      SEC('⑤', '« Du rush au film » (films horizontaux)'),
+      { label: '5 images extraites du film', name: 'rushes', widget: 'list', required: false, max: 5, field: { label: 'Image', name: 'image', widget: 'image', choose_url: false } },
+    ],
+    D: [
+      SEC('④', 'Les pages du site (captures plein écran)'),
+      { label: 'Pages', name: 'ecrans', widget: 'list', required: false, collapsed: true, label_singular: 'page', summary: '{{fields.titre}}', hint: 'Capture de toute la page, 1400 px de large. Elle défile au survol et s’ouvre en grand au clic.', fields: [
+        { label: 'Nom de la page', name: 'titre', widget: 'string' }, IMG('Capture', 'image')] },
+      SEC('⑤', 'La planche de style'),
+      { label: 'Texte de la planche', name: 'planche_texte', widget: 'text', required: false },
+      { label: 'Couleurs (codes, ex. #0E0F54)', name: 'palette', widget: 'list', required: false, field: { label: 'Couleur', name: 'couleur', widget: 'string' } },
+      { label: 'Police des titres', name: 'typo', widget: 'string', required: false },
+      { label: 'Police des textes', name: 'typo_texte', widget: 'string', required: false },
+      { label: 'Autres supports à montrer', name: 'supports', widget: 'select', multiple: true, required: false, options: [
+        { label: 'Affiche', value: 'affiche' }, { label: 'Post Instagram', value: 'post' }, { label: 'Story', value: 'story' },
+        { label: 'Carrousel Instagram', value: 'carrousel' }, { label: 'Bannière web', value: 'banniere' }, { label: 'Site web', value: 'web' }] },
+      { label: 'Réglages avancés : police des titres (CSS)', name: 'typo_css', widget: 'string', required: false },
+      { label: 'Réglages avancés : graisse des titres', name: 'typo_poids', widget: 'string', required: false },
+      { label: 'Réglages avancés : police des textes (CSS)', name: 'typo_texte_css', widget: 'string', required: false },
+      { label: 'Réglages avancés : couleur d’accent', name: 'accent', widget: 'string', required: false },
+    ],
+  };
+  return {
+    name: 'projets-' + cle.toLowerCase(), label, label_singular: sing, description: desc,
+    folder: 'content/projets', extension: 'json', format: 'json', create: true, delete: true,
+    filter: { field: 'theme', value: cle }, slug: '{{slug}}', identifier_field: 'titre',
+    summary: '{{titre}} · {{client}} ({{annee}})', sortable_fields: ['ordre', 'titre', 'annee'],
+    view_filters: [{ label: 'Masqués', field: 'visible', pattern: false }, { label: 'Mis en avant', field: 'en_avant', pattern: true }],
+    editor: { preview: true },
+    fields: [...commun1, ...recit, ...parTheme[cle], ...extra],
+  };
+};
+
 // ---------- la configuration ----------
 const config = {
   load_config_file: false,
@@ -180,14 +266,18 @@ const config = {
           name: 'sections', label: 'Sections ajoutées', file: 'content/sections.json',
           fields: [
             { label: 'Vos sections', name: 'sections', widget: 'list', label_singular: 'section', summary: '{{fields.titre}} {{fields.accent}} · {{fields.position}}', collapsed: true, required: false,
-              hint: "Ajoutez des blocs à l'accueil (texte, image, boutons) et choisissez où ils apparaissent.", fields: [
+              hint: "Ajoutez des blocs (titre, texte, image, boutons) à l'accueil ou à n'importe quelle page, et choisissez où ils apparaissent. Sur les pages intérieures, ils se placent avant l'encadré « Votre projet en images ? ».", fields: [
               { label: 'Afficher cette section', name: 'visible', widget: 'boolean', default: true },
               { label: 'Emplacement', name: 'position', widget: 'select', default: 'apres-services', options: [
-                { label: "Après l'ouverture", value: 'apres-intro' },
-                { label: 'Après « Mes projets »', value: 'apres-projets' },
-                { label: 'Après « Services / À propos »', value: 'apres-services' },
-                { label: 'Après les témoignages', value: 'apres-temoignages' },
-                { label: 'Après le contact', value: 'apres-contact' }] },
+                { label: "Accueil · après l'ouverture", value: 'apres-intro' },
+                { label: 'Accueil · après « Mes projets »', value: 'apres-projets' },
+                { label: 'Accueil · après « Services / À propos »', value: 'apres-services' },
+                { label: 'Accueil · après les témoignages', value: 'apres-temoignages' },
+                { label: 'Accueil · après le contact', value: 'apres-contact' },
+                { label: 'Page Photo', value: 'page-photo' }, { label: 'Page Vidéo', value: 'page-video' }, { label: 'Page Design', value: 'page-design' },
+                { label: 'Page À propos', value: 'page-apropos' },
+                { label: 'Toutes les pages projets', value: 'page-projets' },
+                { label: 'Toutes les pages projets photo', value: 'page-projets-photo' }, { label: 'Toutes les pages projets vidéo', value: 'page-projets-video' }, { label: 'Toutes les pages projets design', value: 'page-projets-design' }] },
               { label: 'Couleur de fond', name: 'fond', widget: 'select', default: 'creme', options: [
                 { label: 'Crème', value: 'creme' }, { label: 'Beige', value: 'beige' }, { label: 'Bleu nuit', value: 'nuit' }, { label: 'Vert-gris', value: 'vert' }] },
               ETIQ, TITRE, ACCENT,
@@ -239,70 +329,123 @@ const config = {
       ],
     },
     // =================================================================
+    // =================================================================
     {
-      name: 'portfolio', label: 'Projets', editor: { preview: false },
-      description: 'Vos thèmes (Photo, Vidéo, Design) et tous vos projets.',
+      name: 'themes', label: 'Bannières et thèmes', editor: { preview: false },
+      description: 'Le nom, la phrase et la bannière (image ou vidéo de fond) des pages Photo, Vidéo et Design.',
       files: [{
-        name: 'projets', label: 'Thèmes et projets', file: 'content/projets.json',
+        name: 'themes', label: 'Les 3 thèmes : Photo, Vidéo, Design', file: 'content/themes.json',
         fields: [
-          { label: 'Les 3 thèmes', name: 'themes', widget: 'list', min: 3, max: 3, allow_add: false, collapsed: true, summary: '{{fields.cle}} · {{fields.nom}}', fields: [
+          { label: 'Thèmes', name: 'themes', widget: 'list', min: 3, max: 3, allow_add: false, allow_remove: false, allow_reorder: false, collapsed: true, summary: '{{fields.nom}}', fields: [
             { label: 'Lettre (ne pas changer)', name: 'cle', widget: 'hidden' },
-            { label: 'Nom du thème', name: 'nom', widget: 'string' },
-            { label: 'Phrase en haut de la page du thème', name: 'texte', widget: 'text' },
-            { label: 'Fond de la page du thème (image, ou vidéo .mp4 pour Vidéo)', name: 'fond', widget: 'file', hint: VIDEO_AIDE, choose_url: false },
-            { label: 'Fond sur l’accueil (facultatif)', name: 'fond_accueil', widget: 'file', required: false, hint: 'Image affichée en plein écran sur l’accueil quand ce thème est choisi. Vide = même image que la page du thème.', choose_url: false },
-            { label: 'Image d’attente de la vidéo de fond (facultatif)', name: 'affiche', widget: 'image', required: false, hint: 'Si le fond est une vidéo : image affichée pendant son chargement.', choose_url: false },
+            { label: 'Nom du thème (menu et titre de la page)', name: 'nom', widget: 'string' },
+            { label: 'Phrase sous le grand titre', name: 'texte', widget: 'text' },
+            { label: 'Bannière : image ou vidéo .mp4 en fond de la page', name: 'fond', widget: 'file', hint: VIDEO_AIDE, choose_url: false },
+            { label: 'Image affichée pendant le chargement de la vidéo (facultatif)', name: 'affiche', widget: 'image', required: false, choose_url: false },
+            { label: 'Fond sur l’accueil quand ce thème est choisi (facultatif)', name: 'fond_accueil', widget: 'file', required: false, choose_url: false, hint: 'Vide = la même bannière que la page du thème.' },
           ] },
-          { label: 'Projets', name: 'projets', widget: 'list', label_singular: 'projet', collapsed: true, summary: '{{fields.theme}} · {{fields.titre}} ({{fields.annee}})', add_to_top: true,
-            hint: "Glissez les projets pour changer leur ordre : les 3 premiers de chaque thème apparaissent sur l'accueil. Gardez au moins un projet par thème.",
-            fields: [
-              { label: 'Afficher ce projet sur le site', name: 'visible', widget: 'boolean', default: true },
-              { label: 'Mettre en avant (passe en premier dans son thème, sur l’accueil et dans la grille)', name: 'en_avant', widget: 'boolean', default: false, required: false },
-              THEME(),
-              { label: 'Titre', name: 'titre', widget: 'string' },
-              { label: 'Identifiant (adresse de la page)', name: 'slug', widget: 'string', required: false, pattern: ['^[a-z0-9-]*$', 'Minuscules, chiffres et tirets seulement'], hint: 'Ex. afrique-coeur-assiette → la page sera #projet-afrique-coeur-assiette. Vide = créé à partir du titre.' },
-              { label: 'Client', name: 'client', widget: 'string', required: false },
-              { label: 'Année', name: 'annee', widget: 'number', value_type: 'int', default: 2026 },
-              { label: 'Catégorie (sert aux filtres)', name: 'categorie', widget: 'string', required: false, hint: 'Ex. Sport, Paysages, Aftermovies, Identités…' },
-              { label: 'Votre rôle', name: 'role', widget: 'string', required: false },
-              { label: 'Outils utilisés (séparés par des virgules)', name: 'outils', widget: 'string', required: false, hint: 'Ex. Canon EOS 77D, Lightroom' },
-              IMG('Image principale', 'image', 'Vignette, fond de la page projet et base des maquettes design.'),
-              IMG('Vignette (facultatif)', 'vignette', 'Image affichée dans la grille et les bandeaux de projets. Vide = l’image principale.'),
-              { label: 'Vidéo du projet (thème Vidéo)', name: 'video', widget: 'file', required: false, hint: VIDEO_AIDE, choose_url: false },
-              { label: 'Format de la vidéo', name: 'format', widget: 'select', required: false, default: 'horizontal', options: [{ label: 'Horizontal (16:9)', value: 'horizontal' }, { label: 'Vertical (9:16, réseaux sociaux)', value: 'vertical' }], hint: 'Vertical : le film s’affiche dans un téléphone sur la page du projet.' },
-              { label: 'Aperçu en boucle (facultatif)', name: 'apercu', widget: 'file', required: false, choose_url: false, hint: 'Court extrait muet de 5 à 10 s (moins de 2 Mo), utilisé pour les vignettes et le haut de la page. Vide = la vidéo du projet.' },
-              { label: 'Diffusion (facultatif)', name: 'diffusion', widget: 'string', required: false, hint: 'Ex. Instagram, avec l’ambassadeur' },
-              { label: 'Vidéo haute qualité pour le plein écran (facultatif)', name: 'video_hd', widget: 'file', required: false, choose_url: false, hint: 'Version 1080p de moins de 25 Mo, lue quand on agrandit le film. Vide = la vidéo du projet.' },
-              { label: 'Lien Instagram de la vidéo (facultatif)', name: 'instagram', widget: 'string', required: false, hint: 'Ajoute un bouton « Voir sur Instagram ».' },
-              { label: 'Rushes (5 images, facultatif)', name: 'rushes', widget: 'list', required: false, field: { label: 'Image', name: 'image', widget: 'image', choose_url: false }, hint: '5 images extraites du film, affichées dans « Du rush au film ». Vide = elles sont tirées automatiquement de la vidéo.' },
-              { label: 'Lien YouTube (facultatif)', name: 'youtube', widget: 'string', required: false, hint: 'Ex. https://youtu.be/… Le film en plein écran est alors lu depuis YouTube, en pleine qualité. La vidéo du projet sert seulement aux animations : une version légère (360p, sans son) suffit.' },
-              { label: 'Supports à montrer (thème Design)', name: 'supports', widget: 'select', multiple: true, required: false, options: [
-                { label: 'Affiche', value: 'affiche' }, { label: 'Post Instagram', value: 'post' }, { label: 'Story', value: 'story' },
-                { label: 'Carrousel Instagram', value: 'carrousel' }, { label: 'Bannière web', value: 'banniere' }, { label: 'Site web', value: 'web' }] },
-              { label: 'Pages du site, captures plein écran (thème Design)', name: 'ecrans', widget: 'list', required: false, collapsed: true, label_singular: 'page', summary: '{{fields.titre}}', hint: 'Capture de toute la page (PNG ou WebP, 1400 px de large). Elle défile au survol et s’ouvre en grand au clic.', fields: [
-                { label: 'Nom de la page', name: 'titre', widget: 'string' }, IMG('Capture', 'image')] },
-              { label: 'Palette de couleurs (thème Design)', name: 'palette', widget: 'list', required: false, field: { label: 'Couleur (ex. #0E0F54)', name: 'couleur', widget: 'string' } },
-              { label: 'Police des titres (thème Design)', name: 'typo', widget: 'string', required: false, hint: 'Nom de la police, ex. Tanker' },
-              { label: 'Police des textes (thème Design)', name: 'typo_texte', widget: 'string', required: false, hint: 'Ex. Poppins' },
-              { label: 'Texte de la planche (thème Design)', name: 'planche_texte', widget: 'text', required: false },
-              { label: 'Réglages avancés des polices', name: 'typo_css', widget: 'string', required: false, hint: 'À laisser vide sauf besoin particulier.' },
-              { label: 'Graisse de la police des titres (avancé)', name: 'typo_poids', widget: 'string', required: false },
-              { label: 'Réglages avancés de la police des textes', name: 'typo_texte_css', widget: 'string', required: false },
-              { label: 'Couleur d’accent (avancé)', name: 'accent', widget: 'string', required: false },
-              IMG('Photo avant retouche (thème Photo)', 'avant', 'Facultatif. Le comparateur avant/après n’apparaît, sous la série, que si les deux photos (avant et après) sont remplies.'),
-              IMG('Photo après retouche (thème Photo)', 'apres'),
-              { label: 'Galerie « La série » (thème Photo)', name: 'galerie', widget: 'list', required: false, collapsed: true, field: IMG('Photo', 'image') },
-              { label: '01 · Le besoin', name: 'besoin', widget: 'text', required: false },
-              { label: '02 · La réalisation', name: 'realisation', widget: 'text', required: false },
-              { label: '03 · Le résultat : chiffre', name: 'resultat_chiffre', widget: 'string', required: false, hint: 'Ex. +40 %, 12 000 vues…' },
-              { label: '03 · Le résultat : texte', name: 'resultat_texte', widget: 'text', required: false },
-              BOUTONS('Boutons sous le récit'),
-            ] },
         ],
       }],
     },
+    PROJETS('P', 'Projets photo', 'projet photo', 'Vos séries photo. Un projet = une page avec sa galerie.'),
+    PROJETS('V', 'Projets vidéo', 'projet vidéo', 'Vos films. Un projet = une page avec le film, « Du rush au film » et les liens YouTube / Instagram.'),
+    PROJETS('D', 'Projets design', 'projet design', 'Vos sites et identités. Un projet = une page avec les écrans, la palette et les typographies.'),
   ],
 };
+
+
+// ---------- admin visuel : titres de sections et aperçu de la page à droite ----------
+function registerVisuel() {
+  const h = window.h, createClass = window.createClass;
+  // titre de section (ne stocke rien)
+  CMS.registerWidget('section', createClass({ render() { return h('div', { style: { margin: '18px 0 2px', padding: '10px 14px', borderRadius: '8px', background: '#1C2938', color: '#F6EFE4', font: '700 15px/1.2 system-ui', letterSpacing: '.02em' } }, this.props.field.get('label')); } }), createClass({ render() { return null; } }));
+  const css = `
+  body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#F6EFE4;color:#1C2938}
+  .z{position:relative;outline:2px dashed rgba(200,16,46,.35);outline-offset:-2px}
+  .n{position:absolute;top:8px;left:8px;z-index:3;background:#C8102E;color:#fff;font:700 13px system-ui;border-radius:999px;padding:3px 9px}
+  .hero{min-height:300px;background:#1C2938 center/cover no-repeat;color:#F6EFE4;display:flex;align-items:flex-end;padding:28px}
+  .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(18,28,40,.85))}
+  .hero>div{position:relative}.hero h1{font:800 44px/1 system-ui;text-transform:uppercase;margin:6px 0}
+  .tag{display:inline-block;font:600 11px system-ui;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(246,239,228,.6);border-radius:999px;padding:4px 10px;margin-right:6px}
+  .meta{opacity:.85;font-size:14px}
+  .story{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:30px 24px}
+  .story h3{font:800 18px system-ui;text-transform:uppercase;margin:4px 0 8px}.story p{font-size:13.5px;line-height:1.55;margin:0;opacity:.85}
+  .story .k{color:#C8102E;font:700 12px system-ui}.big{font:800 34px system-ui;color:#C8102E}
+  .btns{padding:0 24px 24px;display:flex;gap:10px;flex-wrap:wrap}.btn{border-radius:999px;padding:10px 16px;font:600 13px system-ui;background:#C8102E;color:#fff}.btn.c{background:none;border:1.5px solid #1C2938;color:#1C2938}
+  .sec{padding:30px 24px}.sec h2{font:800 22px system-ui;text-transform:uppercase;margin:0 0 14px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block}
+  .film{background:#1C2938;color:#F6EFE4;border-radius:12px;aspect-ratio:16/9;display:grid;place-items:center;background-size:cover;background-position:center}.film.v{aspect-ratio:9/16;max-width:220px}
+  .play{background:#C8102E;border-radius:999px;padding:10px 18px;font:600 14px system-ui}
+  .sw{display:flex;gap:8px;flex-wrap:wrap}.sw i{width:56px;height:56px;border-radius:10px;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+  .vide{opacity:.5;font-style:italic;font-size:13px}`;
+  CMS.registerPreviewStyle(css, { raw: true });
+  const Apercu = createClass({ render() {
+    const e = this.props.entry, d = k => e.getIn(['data', k]), url = v => { if (!v) return ''; const a = this.props.getAsset(v); let u = a ? a.toString() : String(v); if (!/^(blob:|https?:|\/|data:)/.test(u)) u = '/' + u; return u; };
+    const list = k => { const v = d(k); return v && v.toJS ? v.toJS() : (v || []); };
+    const z = (n, kids, extra) => h('div', Object.assign({ className: 'z' }, extra || {}), h('span', { className: 'n' }, n), ...[].concat(kids));
+    const th = d('theme'), img = url(d('image'));
+    const out = [];
+    out.push(z('②', h('div', null, h('span', { className: 'tag' }, d('categorie') || 'catégorie'), h('h1', null, d('titre') || 'Titre du projet'), h('div', { className: 'meta' }, [d('client'), d('annee'), d('role')].filter(Boolean).join(' · '))), { className: 'z hero', style: { backgroundImage: img ? `url("${img}")` : 'none' } }));
+    out.push(z('③', [h('div', { className: 'story' },
+      h('div', null, h('div', { className: 'k' }, '01'), h('h3', null, 'Le besoin'), h('p', null, d('besoin') || h('span', { className: 'vide' }, 'à remplir'))),
+      h('div', null, h('div', { className: 'k' }, '02'), h('h3', null, 'La réalisation'), h('p', null, d('realisation') || h('span', { className: 'vide' }, 'à remplir'))),
+      h('div', null, h('div', { className: 'k' }, '03'), h('h3', null, 'Le résultat'), d('resultat_chiffre') ? h('div', { className: 'big' }, d('resultat_chiffre')) : null, h('p', null, d('resultat_texte') || h('span', { className: 'vide' }, 'à remplir')))),
+      h('div', { className: 'btns' }, list('boutons').map(b => h('span', { className: 'btn' + (b.style === 'rouge' ? '' : ' c') }, b.texte || 'Bouton')))]));
+    if (th === 'P') {
+      const g = list('galerie').map(x => typeof x === 'string' ? x : x && x.image).filter(Boolean);
+      out.push(z('④', h('div', { className: 'sec' }, h('h2', null, `La série · ${g.length} photo${g.length > 1 ? 's' : ''}`), g.length ? h('div', { className: 'grid' }, g.slice(0, 9).map(x => h('img', { src: url(x) }))) : h('p', { className: 'vide' }, 'Ajoutez des photos dans « La série photo ».'))));
+    }
+    if (th === 'V') {
+      const v = d('format') === 'vertical', yt = d('youtube');
+      out.push(z('④', h('div', { className: 'sec' }, h('h2', null, v ? 'Le reel (vertical)' : 'Le film'), h('div', { className: 'film' + (v ? ' v' : ''), style: { backgroundImage: img ? `url("${img}")` : 'none' } }, h('span', { className: 'play' }, yt ? '▶ Voir le film (YouTube)' : d('video') ? '▶ Voir le film' : 'Ajoutez un lien YouTube ou un fichier')))));
+      if (!v) { const r = list('rushes').map(x => typeof x === 'string' ? x : x && x.image).filter(Boolean);
+        out.push(z('⑤', h('div', { className: 'sec' }, h('h2', null, 'Du rush au film'), r.length ? h('div', { className: 'grid' }, r.map(x => h('img', { src: url(x) }))) : h('p', { className: 'vide' }, 'Ajoutez 5 images extraites du film.')))); }
+    }
+    if (th === 'D') {
+      const ec = list('ecrans');
+      out.push(z('④', h('div', { className: 'sec' }, h('h2', null, 'Les pages du site'), ec.length ? h('div', { className: 'grid' }, ec.map(x => h('div', null, h('img', { src: url(x.image), style: { aspectRatio: '3/4', objectPosition: 'top' } }), h('div', { style: { fontSize: '12px', marginTop: '4px' } }, x.titre)))) : h('p', { className: 'vide' }, 'Ajoutez des captures de pages.'))));
+      const pal = list('palette').map(x => typeof x === 'string' ? x : x && x.couleur).filter(Boolean);
+      out.push(z('⑤', h('div', { className: 'sec' }, h('h2', null, 'La planche de style'), h('div', { className: 'sw' }, pal.map(c => h('i', { style: { background: c } }))), h('p', null, [d('typo'), d('typo_texte')].filter(Boolean).join(' · ')), h('p', { style: { fontSize: '13.5px', opacity: .85 } }, d('planche_texte') || ''))));
+    }
+    return h('div', null, h('div', { style: { padding: '10px 14px', font: '600 12px system-ui', background: '#EDE4D5' } }, 'Aperçu de la page projet · les numéros rouges correspondent aux sections du formulaire à gauche'), ...out);
+  } });
+  ['projets-p', 'projets-v', 'projets-d'].forEach(c => CMS.registerPreviewTemplate(c, Apercu));
+}
+
+
+// ---------- menu de l'admin : une entrée courte par section du site ----------
+function reorganiser() {
+  const pages = config.collections.find(c => c.name === 'pages'); if (!pages) return;
+  const fichier = n => pages.files.find(x => x.name === n);
+  const acc = fichier('accueil'), F = n => acc.fields.find(x => x.name === n);
+  const ap = F('apropos'), apPage = ap.fields.find(x => x.name === 'page'), apAccueil = ap.fields.filter(x => x.name !== 'page');
+  const ouvrir = l => l.map(x => x.widget === 'object' ? Object.assign({}, x, { collapsed: false }) : x);
+  const entree = (name, label, file, fields, description) => ({ name, label, file, fields, description });
+  const t = fichier('temoignages'), c = fichier('contact');
+  const accueil = { name: 'accueil', label: '🏠 Page d’accueil', label_singular: 'section', editor: { preview: false },
+    description: 'Les sections de l’accueil, dans l’ordre où elles apparaissent en descendant la page.',
+    files: [
+      entree('intro', '1 · Ouverture : grand titre sur la vidéo', 'content/accueil/intro.json', F('intro').fields),
+      entree('projets-titre', '2 · Titre de la section « Mes projets »', 'content/accueil/projets.json', F('projets').fields),
+      entree('services', '3 · Services (cartes Photo, Vidéo, Design)', 'content/accueil/services.json', ouvrir(F('services').fields)),
+      entree('apropos-accueil', '4 · Bloc « À propos » de l’accueil', 'content/accueil/apropos.json', apAccueil),
+      Object.assign({}, t, { label: '5 · Logos clients et témoignages' }),
+      Object.assign({}, c, { label: '6 · Contact (formulaire, e-mail, Instagram)' }),
+    ] };
+  const apropos = { name: 'page-apropos', label: '👤 Page À propos', editor: { preview: false },
+    files: [
+      entree('apropos-page', 'Page À propos : parcours, valeurs, compétences', 'content/accueil/apropos-page.json', apPage.fields),
+      entree('outils', 'Mes outils (logiciels)', 'content/accueil/outils.json', ouvrir(F('outils').fields)),
+    ] };
+  const reglages = { name: 'reglages', label: '⚙️ Réglages', editor: { preview: false },
+    files: [Object.assign({}, fichier('general'), { label: 'Réglages généraux : logo, menu, Google, textes du site' }), fichier('legal')].filter(Boolean) };
+  const proj = config.collections.filter(x => /^projets-/.test(x.name));
+  proj.forEach(x => { x.label = { 'projets-p': '📷 Projets photo', 'projets-v': '🎬 Projets vidéo', 'projets-d': '🎨 Projets design' }[x.name] || x.label; });
+  const themes = config.collections.find(x => x.name === 'themes'); if (themes) themes.label = '🖼 Bannières (Photo, Vidéo, Design)';
+  const plus = { name: 'sections-plus', label: '➕ Sections en plus', editor: { preview: false }, description: 'Ajoutez un bloc (titre, texte, image, boutons) sur l’accueil ou sur n’importe quelle page.',
+    files: [Object.assign({}, fichier('sections'), { label: 'Mes sections ajoutées (accueil, pages Photo / Vidéo / Design, À propos, projets)' })] };
+  config.collections = [accueil, ...proj, themes, apropos, plus, reglages].filter(Boolean);
+}
 
 // ---------- démarrage ----------
 (async () => {
@@ -317,5 +460,7 @@ const config = {
     return;
   }
   if (!config.backend.repo) config.backend.repo = 'local/site';
+  registerVisuel();
+  reorganiser();
   CMS.init({ config });
 })();

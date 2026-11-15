@@ -1,0 +1,126 @@
+{
+  "titre": "À propos",
+  "chiffres": [],
+  "paragraphes": [],
+  "note": "",
+  "boutons": [
+    {
+      "texte": "Voir mes réalisations",
+      "lien": "#projets",
+      "style": "rouge",
+      "nouvel_onglet": false
+    },
+    {
+      "texte": "Me contacter",
+      "lien": "#contact",
+      "style": "contour",
+      "nouvel_onglet": false
+    }
+  ],
+  "anime": {
+    "titre": "Ce qui",
+    "accent": "m’anime ?",
+    "items": [
+      {
+        "titre": "Le mouvement",
+        "texte": "Saisir l'énergie et l'intensité de chaque instant.",
+        "anim": "mouvement",
+        "court": "L’énergie de l’instant."
+      },
+      {
+        "titre": "L’humain",
+        "texte": "Mettre en lumière celles et ceux qui portent des projets à l’échelle locale.",
+        "anim": "humain",
+        "court": "Les acteurs du terrain."
+      },
+      {
+        "titre": "L’émotion",
+        "texte": "Transmettre ce qui rend chaque moment unique.",
+        "anim": "emotion",
+        "court": "Les moments qui comptent."
+      },
+      {
+        "titre": "La créativité",
+        "texte": "Utiliser toutes les technologies et créer du lien entre elles pour donner vie aux idées.",
+        "anim": "creativite",
+        "court": "Relier outils et idées."
+      }
+    ]
+  },
+  "competences": {
+    "etiquette": "Domaines de compétences",
+    "titre": "Mes angles",
+    "accent": "de vue",
+    "items": [
+      {
+        "titre": "Photographie",
+        "texte": "Photographie sportive et événementielle, conférences et événements professionnels, portraits d’intervenants et photos d’équipe. Sélection, retouche et traitement des images.",
+        "lien": "#photo",
+        "lien_texte": "Voir les projets photo"
+      },
+      {
+        "titre": "Vidéo & montage",
+        "texte": "Aftermovies sportifs et événementiels, reels et formats courts pour les réseaux sociaux, interviews et vidéos promotionnelles. Montage, étalonnage et motion design.",
+        "lien": "#video",
+        "lien_texte": "Voir les projets vidéo"
+      },
+      {
+        "titre": "Design & web",
+        "texte": "Création et refonte de sites internet, logos et identités visuelles, affiches, flyers et programmes, visuels pour les réseaux sociaux.",
+        "lien": "#design",
+        "lien_texte": "Voir les projets design"
+      }
+    ]
+  },
+  "vision": {
+    "etiquette": "Ma façon de travailler",
+    "titre": "Ma",
+    "accent": "méthode",
+    "items": [
+      {
+        "titre": "L’échange",
+        "texte": "Un premier rendez-vous pour comprendre vos besoins, votre identité et vos objectifs avant de créer."
+      },
+      {
+        "titre": "Le tournage ou la création",
+        "texte": "Sur le terrain ou derrière l’écran, je capte et je conçois des contenus fidèles à votre histoire, en photo, en vidéo ou en design."
+      },
+      {
+        "titre": "La livraison",
+        "texte": "Des contenus prêts à être diffusés, adaptés à chaque support : réseaux sociaux, site web ou impression."
+      }
+    ]
+  },
+  "parcours": {
+    "etiquette": "Mon parcours",
+    "titre": "D’où je",
+    "accent": "viens",
+    "etapes": [
+      {
+        "date": "2016 — 2023",
+        "titre": "Se professionnaliser",
+        "texte": "En parallèle de mes études, je rejoins la cellule communication du 1er Régiment de Chasseurs Parachutistes, où je développe mes compétences en photographie, design, web et vidéo jusqu’en 2023."
+      },
+      {
+        "date": "2021",
+        "titre": "Master en poche",
+        "texte": "Diplômée d’un Master en communication digitale et audiovisuelle, je développe une approche polyvalente, de la stratégie à la création de contenus, pour concevoir des communications cohérentes et créatives."
+      },
+      {
+        "date": "2023",
+        "titre": "Arrivée à Genève",
+        "texte": "En 2023, mon arrivée à Genève me permet de découvrir un tissu associatif dynamique, porté par des acteurs engagés et des projets qui méritent d’être mis en lumière."
+      },
+      {
+        "date": "2025 — jusqu’à nos jours",
+        "titre": "Mon parcours aujourd’hui",
+        "texte": "Chargée de communication dans une association genevoise, je mets ma créativité au service du sport et de ses acteurs, en racontant les histoires humaines derrière les événements, les engagements et les défis."
+      }
+    ],
+    "difference": {
+      "titre": "Ce qui me différencie",
+      "texte": "Empathique et sensible aux émotions, j’aime capturer ces instants qui racontent une histoire : un effort, un engagement, une rencontre ou une réussite. Polyvalente, je maîtrise différents supports et formats pour construire une communication cohérente, authentique et porteuse de sens."
+    }
+  },
+  "logos": true
+}

@@ -1,0 +1,43 @@
+{
+  "theme": "V",
+  "titre": "Conférence romande des enfants · Palais fédéral",
+  "slug": "conference-romande-des-enfants-palais-federal",
+  "client": "Conférence romande des enfants",
+  "annee": 2026,
+  "categorie": "Aftermovies",
+  "role": "Storyboard, direction artistique, tournage, montage",
+  "outils": "Premiere Pro",
+  "image": "p/pf-poster.webp",
+  "video": "films/pf-film.mp4",
+  "apercu": "films/pf-loop.mp4",
+  "format": "horizontal",
+  "youtube": "https://youtu.be/jmIY7vxfq80",
+  "rushes": [
+    "p/pf-rush-1.webp",
+    "p/pf-rush-2.webp",
+    "p/pf-rush-3.webp",
+    "p/pf-rush-4.webp",
+    "p/pf-rush-5.webp"
+  ],
+  "besoin": "Réaliser une vidéo rétrospective de la visite du Palais fédéral dans le cadre de la Conférence romande des enfants. Un contenu audiovisuel destiné à retracer les moments forts de l’événement et à valoriser l’expérience des participants et des intervenants.",
+  "realisation": "Conception du storyboard, direction artistique, réalisation des prises de vue et montage vidéo. Développement d’un storytelling immersif, centré sur le vécu, les échanges et les émotions des enfants, avec un ton à la fois humain et institutionnel.",
+  "resultat_chiffre": "",
+  "resultat_texte": "Publication sur les supports de communication de l’événement et relais auprès des partenaires dans le cadre d’une communication croisée.",
+  "boutons": [
+    {
+      "texte": "Voir sur YouTube",
+      "lien": "https://youtu.be/nsNBUsEVmRQ",
+      "style": "rouge",
+      "nouvel_onglet": true
+    },
+    {
+      "texte": "En savoir plus sur l’initiative",
+      "lien": "https://terredeshommessuisse.ch/notre-action/suisse/conference-des-enfants/",
+      "style": "contour",
+      "nouvel_onglet": true
+    }
+  ],
+  "visible": true,
+  "vignette": "p/vt-pf.webp",
+  "ordre": 80
+}

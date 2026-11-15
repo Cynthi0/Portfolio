@@ -1,0 +1,71 @@
+{
+  "titre": "Mes outils",
+  "groupes": [
+    {
+      "nom": "Photo",
+      "couleur": "corail",
+      "outils": [
+        {
+          "nom": "Photoshop",
+          "usage": "Retouche photo",
+          "icone": "pinceau",
+          "logo": "o/photoshop.webp"
+        },
+        {
+          "nom": "Lightroom",
+          "usage": "Développement photo",
+          "icone": "reglages",
+          "logo": "o/lightroom.webp"
+        }
+      ]
+    },
+    {
+      "nom": "Vidéo",
+      "couleur": "creme",
+      "outils": [
+        {
+          "nom": "Premiere Pro",
+          "usage": "Montage vidéo",
+          "icone": "montage",
+          "logo": "o/premiere-pro.webp"
+        },
+        {
+          "nom": "After Effects",
+          "usage": "Motion design",
+          "icone": "motion",
+          "logo": "o/after-effects.webp"
+        }
+      ]
+    },
+    {
+      "nom": "Design",
+      "couleur": "nuit",
+      "outils": [
+        {
+          "nom": "InDesign",
+          "usage": "Mise en page",
+          "icone": "mise-en-page",
+          "logo": "o/indesign.webp"
+        },
+        {
+          "nom": "Figma",
+          "usage": "Interfaces et maquettes",
+          "icone": "figma",
+          "logo": "o/figma.webp"
+        },
+        {
+          "nom": "WordPress",
+          "usage": "Sites web",
+          "icone": "web",
+          "logo": "o/wordpress.webp"
+        },
+        {
+          "nom": "Procreate",
+          "usage": "Illustration",
+          "icone": "crayon",
+          "logo": "o/procreate.webp"
+        }
+      ]
+    }
+  ]
+}

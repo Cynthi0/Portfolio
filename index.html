@@ -1733,6 +1733,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 /* arrondis des cartes */
 .mt,.pc2,.va,.aa,.tl-row,.contact-s .form{border-radius:14px!important}
 .logo-img img{height:34px;width:auto;display:block}@media (max-width:860px){.logo-img img{height:28px}}
+.free-wrap{margin-block:24px}
 </style>
 </head>
 <body>
@@ -1980,6 +1981,10 @@ window.applyContent = C => {
   const ft = q('.foot-site .in').children; ft[0].textContent = (G.pied || {}).gauche || ''; ft[2].innerHTML = `${E((G.pied || {}).droite || '')} · <a href="#mentions-legales">Mentions légales</a>`;
   ft[1].innerHTML = [['photo', thn('P')], ['video', thn('V')], ['design', thn('D')], ['contact', 'Contact']].map(([h, n]) => `<a href="#${h}">${E(n)}</a>`).join(' · ') + (K.instagram ? ` · <a href="${E(K.instagram)}" target="_blank" rel="noopener">Instagram</a>` : '');
   // sections libres ajoutées depuis l'administration
+  window.freeSecHTML = x => { const id = x.ancre ? ` id="${E(x.ancre)}"` : '';
+    return `<section class="free f-${E(x.fond || 'creme')}${x.image ? ' has-img' : ''}"${id}><div class="free-in">${x.image ? `<figure class="free-im"><img src="${E(x.image)}" alt="" loading="lazy"></figure>` : ''}<div class="free-tx">
+      ${x.etiquette ? `<span class="lbl-r mono">${E(x.etiquette)}</span>` : ''}${x.titre ? `<h2 class="h2">${ttl(x.titre, x.accent)}</h2>` : ''}
+      ${(x.texte || '').split(/\n\s*\n/).filter(Boolean).map(p => `<p>${E(p).replace(/\n/g, '<br>')}</p>`).join('')}${window.btnsWrap(x.boutons)}</div></div></section>`; };
   const POS = { 'apres-intro': '#intro', 'apres-projets': '#projets', 'apres-services': '#services', 'apres-temoignages': '.trust2', 'apres-contact': '#contact' };
   [...((C.sections || {}).sections || [])].reverse().forEach((x, i) => { if (x.visible === false) return; const at = q(POS[x.position] || '#contact'); if (!at) return;
     const id = x.ancre ? ` id="${E(x.ancre)}"` : '';
@@ -2728,6 +2733,10 @@ ${foot(t, 6)}`; }
       page.className = t || p ? 'full' : '';
       page.innerHTML = t ? themePage(t) : p ? projectPage(p) : legal ? legalPage() : lost ? lostPage() : aboutPage();
       if (t) initTheme(t); if (p) initProject(p); if (h === 'a-propos') initAbout();
+      // sections ajoutées depuis l'admin sur les pages intérieures (avant l'encadré « Votre projet en images ? »)
+      { const key = t ? 'page-' + t.route : p ? 'page-projets' : h === 'a-propos' ? 'page-apropos' : '';
+        const S = [...((C.sections || {}).sections || []).filter(x => x.visible !== false && key && (x.position === key || (p && x.position === 'page-projets-' + p.th.route))), ...(p ? (p.raw.sections || []).filter(x => x.visible !== false) : [])];
+        if (S.length && window.freeSecHTML) { const html = S.map(window.freeSecHTML).join(''), c = page.querySelector('.pcta2'); const w = document.createElement('div'); w.className = 'free-wrap bleed'; w.innerHTML = html; if (c) c.before(w); else page.append(w); } }
       home.hidden = true; page.hidden = false; document.documentElement.classList.add('pageview'); scrollTo(0, 0); mark(t ? t.k : p ? p.th.k : null);
       document.documentElement.classList.add('scrolled'); document.title = `${t ? t.n : p ? p.t : legal ? 'Mentions légales' : lost ? 'Page introuvable' : 'À propos'} · Cynthia.inmotion`;
       page.querySelector('h1')?.setAttribute('tabindex', '-1'); page.querySelector('h1')?.focus({ preventScroll: true });

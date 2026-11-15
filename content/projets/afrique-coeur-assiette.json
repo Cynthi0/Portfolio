@@ -1,0 +1,30 @@
+{
+  "theme": "P",
+  "titre": "L’Afrique au cœur de l’assiette",
+  "slug": "afrique-coeur-assiette",
+  "client": "Plateforme de Souveraineté alimentaire",
+  "annee": 2026,
+  "categorie": "Événementiel",
+  "role": "Photographie, vidéo",
+  "outils": "",
+  "image": "p/jma-08-hd.webp",
+  "avant": "",
+  "apres": "",
+  "galerie": [
+    "p/jma-00.webp",
+    "p/jma-03.webp",
+    "p/jma-51.webp",
+    "p/jma-07.webp",
+    "p/jma-14.webp",
+    "p/jma-42.webp",
+    "p/jma-43.webp",
+    "p/jma-44.webp"
+  ],
+  "besoin": "Assurer la couverture photo et vidéo, en valorisant les partenaires, la table ronde et les animations. L’objectif : produire des contenus pour les réseaux sociaux et le site web, tout en donnant de la visibilité aux acteurs présents.",
+  "realisation": "Un reportage photo valorisant les acteurs du tissu associatif, les échanges et les animations, tout en capturant l’ambiance conviviale et familiale de l’événement.",
+  "resultat_chiffre": "",
+  "resultat_texte": "Des contenus repris et partagés par plusieurs partenaires sur leurs réseaux sociaux, prolongeant la visibilité de l’événement et des acteurs impliqués.",
+  "boutons": [],
+  "visible": true,
+  "ordre": 20
+}

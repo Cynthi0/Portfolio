@@ -1,0 +1,44 @@
+{
+  "theme": "V",
+  "titre": "Conférence romande des enfants",
+  "slug": "conference-romande-des-enfants",
+  "client": "Conférence romande des enfants",
+  "annee": 2026,
+  "categorie": "Aftermovies",
+  "role": "Storyboard, direction artistique, tournage, montage",
+  "outils": "Premiere Pro",
+  "image": "p/cre-poster.webp",
+  "video": "films/cre-film.mp4",
+  "besoin": "Concevoir une vidéo rétrospective de la Conférence romande des enfants, retraçant les temps forts de l’événement et valorisant l’expérience des participants. Un contenu destiné à être diffusé auprès du public et des partenaires à l’issue de la conférence.",
+  "realisation": "Élaboration du storyboard, direction artistique, réalisation des prises de vue et montage vidéo. Développement d’un storytelling immersif, centré sur le vécu et les émotions des enfants, avec un ton à la fois touchant et institutionnel.",
+  "resultat_chiffre": "",
+  "resultat_texte": "Diffusion sur les supports de communication de l’événement et relais via une communication croisée avec les partenaires, prolongeant ainsi la visibilité de la conférence.",
+  "boutons": [
+    {
+      "texte": "Voir sur YouTube",
+      "lien": "https://youtu.be/YYA4K2EsnLI",
+      "style": "rouge",
+      "nouvel_onglet": true
+    },
+    {
+      "texte": "En savoir plus sur l’initiative",
+      "lien": "https://terredeshommessuisse.ch/notre-action/suisse/conference-des-enfants/",
+      "style": "contour",
+      "nouvel_onglet": true
+    }
+  ],
+  "visible": true,
+  "apercu": "films/cre-loop.mp4",
+  "format": "horizontal",
+  "youtube": "https://youtu.be/ylxuru8avy8",
+  "video_hd": "films/cre-film-son.mp4",
+  "rushes": [
+    "p/cre-rush-1.webp",
+    "p/cre-rush-2.webp",
+    "p/cre-rush-3.webp",
+    "p/cre-rush-4.webp",
+    "p/cre-rush-5.webp"
+  ],
+  "vignette": "p/vt-cre.webp",
+  "ordre": 60
+}

@@ -7,3 +7,16 @@
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/p/*
+  Cache-Control: public, max-age=2592000
+/b/*
+  Cache-Control: public, max-age=2592000
+/c/*
+  Cache-Control: public, max-age=2592000
+/o/*
+  Cache-Control: public, max-age=2592000
+/films/*
+  Cache-Control: public, max-age=2592000
+/v/*
+  Cache-Control: public, max-age=2592000

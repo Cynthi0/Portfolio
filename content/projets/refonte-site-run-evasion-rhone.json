@@ -1,0 +1,63 @@
+{
+  "theme": "D",
+  "titre": "Refonte du site Trail Run Évasion Rhône",
+  "slug": "refonte-site-run-evasion-rhone",
+  "client": "Trail Run Évasion Rhône",
+  "annee": 2026,
+  "categorie": "Sites web",
+  "role": "UX, UI, arborescence, templates, intégration",
+  "outils": "Figma, WordPress",
+  "image": "p/rer-hero.webp",
+  "supports": [],
+  "palette": [
+    "#FF0000",
+    "#000000",
+    "#FFFFFF",
+    "#F9E5E5",
+    "#E94E95",
+    "#A1C181"
+  ],
+  "accent": "#FF0000",
+  "typo": "Archivo",
+  "typo_css": "Archivo XC",
+  "typo_poids": 800,
+  "typo_texte": "Archivo",
+  "typo_texte_css": "Archivo XC",
+  "planche_texte": "Refonte du site internet Trail Run Évasion Rhône en cohérence avec son identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant les différents formats de course.",
+  "ecrans": [
+    {
+      "titre": "Accueil",
+      "image": "p/rer-accueil.webp"
+    },
+    {
+      "titre": "Épreuve 100 km",
+      "image": "p/rer-epreuve-100km.webp"
+    },
+    {
+      "titre": "Infos pratiques",
+      "image": "p/rer-infos.webp"
+    },
+    {
+      "titre": "Bénévoles",
+      "image": "p/rer-benevoles.webp"
+    },
+    {
+      "titre": "Entreprises / Partenaires",
+      "image": "p/rer-entreprises.webp"
+    }
+  ],
+  "besoin": "Moderniser le site internet en cohérence avec son identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant les différents formats de course.",
+  "realisation": "Structuration des contenus et conception des parcours utilisateurs (UX). Déclinaison de l’identité graphique (UI). Création de l’arborescence, de l’architecture des pages et des templates sur Figma avant intégration des pages sur WordPress.",
+  "resultat_chiffre": "1 semaine",
+  "resultat_texte": "Un site repensé, plus intuitif et fonctionnel, réalisé en 1 semaine de la définition du projet à sa mise en ligne.",
+  "boutons": [
+    {
+      "texte": "Voir le site",
+      "lien": "https://run-evasion-rhone.ch/",
+      "style": "rouge",
+      "nouvel_onglet": true
+    }
+  ],
+  "visible": true,
+  "ordre": 120
+}

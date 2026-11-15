@@ -1,0 +1,27 @@
+{
+  "themes": [
+    {
+      "cle": "P",
+      "nom": "Photo",
+      "texte": "Du portrait à la photographie sportive : des histoires racontées avec des instants capturés.",
+      "fond": "b/photo-page.webp",
+      "fond_accueil": "b/photo-accueil.webp"
+    },
+    {
+      "cle": "V",
+      "nom": "Vidéo",
+      "texte": "Aftermovies, reels, interviews et films de marque : des vidéos pour faire revivre les instants forts et transmettre des émotions.",
+      "fond": "films/video-banner.mp4",
+      "fond_accueil": "",
+      "affiche": "b/video-banner.webp"
+    },
+    {
+      "cle": "D",
+      "nom": "Design",
+      "texte": "Identités visuelles, sites web et supports graphiques : des créations qui révèlent votre identité et font rayonner vos projets.",
+      "fond": "films/design-banner.mp4",
+      "fond_accueil": "",
+      "affiche": "b/design-banner.webp"
+    }
+  ]
+}
