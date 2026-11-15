@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page introuvable · Cynthia.inmotion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--nuit:#1C2938;--creme:#F6EFE4;--rouge:#C8102E;--corail:#F26962}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;min-height:100svh;background:var(--nuit);color:var(--creme);font-family:Archivo,system-ui,sans-serif;display:flex;flex-direction:column}
+  header{padding:22px 24px}
+  .logo{color:var(--creme);text-decoration:none;font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .logo em{font-style:normal;font-weight:300;color:var(--corail)}
+  main{flex:1;display:flex;align-items:center;padding:24px}
+  .in{max-width:1180px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:20px;position:relative}
+  .vf{position:absolute;inset:-28px -24px;pointer-events:none}
+  .mono{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--corail)}
+  h1{margin:0;font-weight:800;font-stretch:66%;text-transform:uppercase;font-size:clamp(64px,12vw,170px);line-height:.85}
+  h1 em{font-style:normal;font-weight:300;font-stretch:100%;text-transform:none;color:var(--corail)}
+  p{margin:0;font-size:18px;line-height:1.55;max-width:44ch;opacity:.85}
+  .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  a.b{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:13px 22px;border-radius:999px}
+  .r{background:var(--rouge);color:var(--creme)}.r:hover{background:#A60D26}
+  .c{border:1.5px solid rgba(246,239,228,.5);color:var(--creme)}.c:hover{border-color:var(--creme)}
+  .rec{display:inline-flex;align-items:center;gap:8px}.rec i{width:9px;height:9px;border-radius:50%;background:var(--rouge);animation:blink 1.4s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.rec i{animation:none}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="/">Cynthia<em>.inmotion</em></a></header>
+<main>
+  <div class="in">
+    <span class="mono rec"><i></i>Erreur 404 · hors champ</span>
+    <h1>Hors <em>champ.</em></h1>
+    <p>Cette page n'existe pas ou a été déplacée. Le reste du site, lui, est bien net.</p>
+    <div class="acts"><a class="b r" href="/#projets">Voir mes projets</a><a class="b c" href="/#contact">Me contacter</a></div>
+  </div>
+</main>
+</body>
+</html>

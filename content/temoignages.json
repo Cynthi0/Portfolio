@@ -1,0 +1,57 @@
+{
+  "bandeau": "Ils me font confiance",
+  "logos": [
+    {
+      "nom": "Plateforme Souveraineté alimentaire",
+      "logo": "c/plateforme-souverainete-alimentaire.png"
+    },
+    {
+      "nom": "Terre des Hommes Suisse",
+      "logo": "c/terre-des-hommes-suisse.png"
+    },
+    {
+      "nom": "Running Geneva",
+      "logo": "c/running-geneva.png"
+    },
+    {
+      "nom": "Tereo",
+      "logo": "c/tereo.png"
+    }
+  ],
+  "etiquette": "Témoignages",
+  "titre": "Leur retour",
+  "accent": "d’expérience",
+  "bouton_laisser": "Laisser un témoignage",
+  "note": "",
+  "boutons": [],
+  "liste": [
+    {
+      "texte": "Emplacement pour un vrai témoignage : une ou deux phrases de votre client, dans ses mots.",
+      "nom": "Prénom Nom",
+      "structure": "Structure · projet",
+      "image": "p/02.webp",
+      "legende": "Aftermovie"
+    },
+    {
+      "texte": "Ici, un retour sur le résultat : ce que la vidéo ou les photos ont changé pour lui.",
+      "nom": "Prénom Nom",
+      "structure": "Structure · projet",
+      "image": "p/01.webp",
+      "legende": "Portraits trail"
+    },
+    {
+      "texte": "Ici, un mot sur la façon de travailler : écoute, réactivité, délais tenus.",
+      "nom": "Prénom Nom",
+      "structure": "Structure · projet",
+      "image": "p/08.webp",
+      "legende": "Identité"
+    },
+    {
+      "texte": "Et une dernière page pour un client fidèle ou un partenaire genevois.",
+      "nom": "Prénom Nom",
+      "structure": "Structure · projet",
+      "image": "p/10.webp",
+      "legende": "La rade"
+    }
+  ]
+}
