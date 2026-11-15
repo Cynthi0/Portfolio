@@ -1,0 +1,547 @@
+{
+  "themes": [
+    {
+      "cle": "P",
+      "nom": "Photo",
+      "texte": "Du portrait à la photographie sportive : des histoires racontées avec des instants capturés.",
+      "fond": "b/photo-page.webp",
+      "fond_accueil": "b/photo-accueil.webp"
+    },
+    {
+      "cle": "V",
+      "nom": "Vidéo",
+      "texte": "Aftermovies, reels, interviews et films de marque : des vidéos pour faire revivre les instants forts et transmettre des émotions.",
+      "fond": "films/video-banner.mp4",
+      "fond_accueil": "",
+      "affiche": "b/video-banner.webp"
+    },
+    {
+      "cle": "D",
+      "nom": "Design",
+      "texte": "Identités visuelles, sites web et supports graphiques : des créations qui révèlent votre identité et font rayonner vos projets.",
+      "fond": "films/design-banner.mp4",
+      "fond_accueil": "",
+      "affiche": "b/design-banner.webp"
+    }
+  ],
+  "projets": [
+    {
+      "theme": "P",
+      "titre": "Trail du Grand Genève",
+      "slug": "trail-du-grand-geneve",
+      "client": "Trail du Grand Genève",
+      "annee": 2025,
+      "categorie": "Sport",
+      "role": "Photographie",
+      "outils": "Canon EOS 77D",
+      "image": "p/tgg-02-hd.webp",
+      "video": "",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [
+        "p/tgg-25.webp",
+        "p/tgg-13.webp",
+        "p/tgg-03.webp",
+        "p/tgg-04.webp",
+        "p/tgg-07.webp",
+        "p/tgg-21.webp",
+        "p/tgg-23.webp",
+        "p/tgg-15.webp",
+        "p/tgg-18.webp",
+        "p/tgg-24.webp",
+        "p/tgg-06.webp",
+        "p/tgg-14.webp"
+      ],
+      "besoin": "Immortaliser la première édition du Trail du Grand Genève en mettant en lumière la convivialité de l’événement et le dépassement de soi des participants. Créer des visuels forts pour promouvoir les éditions suivantes.",
+      "realisation": "Un reportage photo capturant toute l’intensité du sport : de l’effort des coureurs à l’émotion des arrivées, en passant par la ferveur des bénévoles, des organisateurs et des partenaires.",
+      "resultat_chiffre": "",
+      "resultat_texte": "Des visuels réutilisés pour la campagne de promotion 2026, contribuant à faire rayonner l’événement, dont la participation a progressé de plus de 30 % en deux ans.",
+      "boutons": [],
+      "visible": true
+    },
+    {
+      "theme": "P",
+      "titre": "L’Afrique au cœur de l’assiette",
+      "slug": "afrique-coeur-assiette",
+      "client": "Plateforme de Souveraineté alimentaire",
+      "annee": 2026,
+      "categorie": "Événementiel",
+      "role": "Photographie, vidéo",
+      "outils": "",
+      "image": "p/jma-08-hd.webp",
+      "video": "",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [
+        "p/jma-00.webp",
+        "p/jma-03.webp",
+        "p/jma-51.webp",
+        "p/jma-07.webp",
+        "p/jma-14.webp",
+        "p/jma-42.webp",
+        "p/jma-43.webp",
+        "p/jma-44.webp"
+      ],
+      "besoin": "Assurer la couverture photo et vidéo, en valorisant les partenaires, la table ronde et les animations. L’objectif : produire des contenus pour les réseaux sociaux et le site web, tout en donnant de la visibilité aux acteurs présents.",
+      "realisation": "Un reportage photo valorisant les acteurs du tissu associatif, les échanges et les animations, tout en capturant l’ambiance conviviale et familiale de l’événement.",
+      "resultat_chiffre": "",
+      "resultat_texte": "Des contenus repris et partagés par plusieurs partenaires sur leurs réseaux sociaux, prolongeant la visibilité de l’événement et des acteurs impliqués.",
+      "boutons": [],
+      "visible": true
+    },
+    {
+      "theme": "P",
+      "titre": "La marche de l’espoir",
+      "slug": "marche-de-l-espoir",
+      "client": "Terre des hommes Suisse",
+      "annee": 2026,
+      "categorie": "Événementiel",
+      "role": "Photographie",
+      "outils": "",
+      "image": "p/mde-15-hd.webp",
+      "video": "",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [
+        "p/mde-22.webp",
+        "p/mde-20.webp",
+        "p/mde-23.webp",
+        "p/mde-09.webp",
+        "p/mde-37.webp",
+        "p/mde-13.webp",
+        "p/mde-03.webp",
+        "p/mde-04.webp",
+        "p/mde-28.webp",
+        "p/mde-40.webp",
+        "p/mde-12.webp",
+        "p/mde-16.webp"
+      ],
+      "besoin": "Valoriser l’ambiance conviviale de l’événement, l’engagement de Terre des Hommes et de ses partenaires, tout en créant des visuels pour la campagne d’affichage de la prochaine édition.",
+      "realisation": "Un reportage photo mêlant moments d’ambiance, mise en lumière des acteurs de l’événement (organisateurs, bénévoles, partenaires et ambassadeurs) et clichés des coureurs en action.",
+      "resultat_chiffre": "",
+      "resultat_texte": "Une visibilité prolongée après l’événement grâce à trois publications de l’organisateur, relayées par les partenaires et ambassadeurs, et à la diffusion des photos des coureurs sur le site officiel de la course.",
+      "boutons": [],
+      "visible": true
+    },
+    {
+      "theme": "V",
+      "titre": "100 km ultra-trail débarque à Genève",
+      "slug": "100-km-ultra-trail-geneve",
+      "client": "Trail Run Évasion Rhône",
+      "annee": 2026,
+      "categorie": "Reels",
+      "role": "Storyboard, montage",
+      "outils": "Premiere Pro",
+      "image": "p/rer100-poster.webp",
+      "video": "films/rer100-film.mp4",
+      "apercu": "films/rer100-loop.mp4",
+      "format": "horizontal",
+      "youtube": "https://youtu.be/b6IrVt_Yeww",
+      "instagram": "https://www.instagram.com/reel/DffROKNsVtp/",
+      "rushes": [
+        "p/rer100-rush-1.webp",
+        "p/rer100-rush-2.webp",
+        "p/rer100-rush-3.webp",
+        "p/rer100-rush-4.webp",
+        "p/rer100-rush-5.webp"
+      ],
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "besoin": "Promouvoir le lancement d’un nouveau format d’ultra-trail de 100 km dans le canton de Genève à travers une vidéo dynamique, reprenant les codes du contenu sportif sur les réseaux sociaux et mettant en scène les ambassadeurs de la distance.",
+      "realisation": "Conception du storyboard et montage vidéo. Développement d’un storytelling immersif valorisant le défi sportif, les émotions liées à une telle distance et la beauté des paysages naturels préservés du canton de Genève.",
+      "resultat_chiffre": "18,3 K",
+      "resultat_texte": "vues et 443 mentions « J’aime » en une semaine sur Instagram. Diffusion accompagnée d’une communication croisée avec les ambassadeurs et l’ensemble des partenaires de l’événement.",
+      "boutons": [
+        {
+          "texte": "Voir sur YouTube",
+          "lien": "https://youtu.be/b6IrVt_Yeww",
+          "style": "rouge",
+          "nouvel_onglet": true
+        },
+        {
+          "texte": "Voir sur Instagram",
+          "lien": "https://www.instagram.com/reel/DffROKNsVtp/",
+          "style": "contour",
+          "nouvel_onglet": true
+        }
+      ],
+      "visible": true,
+      "vignette": "p/vt-rer100.webp"
+    },
+    {
+      "theme": "V",
+      "titre": "Trail du Grand Genève",
+      "slug": "trail-du-grand-geneve-video",
+      "client": "Trail du Grand Genève",
+      "annee": 2026,
+      "categorie": "Reels",
+      "role": "Direction artistique, tournage, montage, animation",
+      "outils": "Premiere Pro, After Effects",
+      "image": "p/tgg-v-poster.webp",
+      "video": "films/tgg-ambassadeur.mp4",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "besoin": "Concevoir une vidéo promotionnelle dynamique, pensée pour les réseaux sociaux, mettant en lumière l’ambassadeur de la course et valorisant l’identité de l’événement.",
+      "realisation": "Direction artistique et réalisation des prises de vue, montage vidéo et création d’effets animés. Un travail inspiré des codes du montage sportif pour retranscrire l’énergie, les valeurs et les exigences techniques de la course.",
+      "resultat_chiffre": "7,4 K",
+      "resultat_texte": "impressions sur Instagram. Une collaboration avec l’ambassadeur à travers une communication croisée, relayée également par les partenaires de l’événement.",
+      "boutons": [],
+      "visible": true,
+      "apercu": "films/tgg-ambassadeur-loop.mp4",
+      "format": "vertical",
+      "diffusion": "Instagram, avec l’ambassadeur",
+      "instagram": "https://www.instagram.com/reel/DXwt5BvIeJA/",
+      "youtube": "https://youtube.com/shorts/g2Z7W0dl4-s",
+      "vignette": "p/vt-tgg.webp"
+    },
+    {
+      "theme": "V",
+      "titre": "Conférence romande des enfants",
+      "slug": "conference-romande-des-enfants",
+      "client": "Conférence romande des enfants",
+      "annee": 2026,
+      "categorie": "Aftermovies",
+      "role": "Storyboard, direction artistique, tournage, montage",
+      "outils": "Premiere Pro",
+      "image": "p/cre-poster.webp",
+      "video": "films/cre-film.mp4",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "besoin": "Concevoir une vidéo rétrospective de la Conférence romande des enfants, retraçant les temps forts de l’événement et valorisant l’expérience des participants. Un contenu destiné à être diffusé auprès du public et des partenaires à l’issue de la conférence.",
+      "realisation": "Élaboration du storyboard, direction artistique, réalisation des prises de vue et montage vidéo. Développement d’un storytelling immersif, centré sur le vécu et les émotions des enfants, avec un ton à la fois touchant et institutionnel.",
+      "resultat_chiffre": "",
+      "resultat_texte": "Diffusion sur les supports de communication de l’événement et relais via une communication croisée avec les partenaires, prolongeant ainsi la visibilité de la conférence.",
+      "boutons": [
+        {
+          "texte": "Voir sur YouTube",
+          "lien": "https://youtu.be/YYA4K2EsnLI",
+          "style": "rouge",
+          "nouvel_onglet": true
+        },
+        {
+          "texte": "En savoir plus sur l’initiative",
+          "lien": "https://terredeshommessuisse.ch/notre-action/suisse/conference-des-enfants/",
+          "style": "contour",
+          "nouvel_onglet": true
+        }
+      ],
+      "visible": true,
+      "apercu": "films/cre-loop.mp4",
+      "format": "horizontal",
+      "youtube": "https://youtu.be/ylxuru8avy8",
+      "video_hd": "films/cre-film-son.mp4",
+      "rushes": [
+        "p/cre-rush-1.webp",
+        "p/cre-rush-2.webp",
+        "p/cre-rush-3.webp",
+        "p/cre-rush-4.webp",
+        "p/cre-rush-5.webp"
+      ],
+      "vignette": "p/vt-cre.webp"
+    },
+    {
+      "theme": "V",
+      "titre": "Ultra Montée du Trail du Grand Genève",
+      "slug": "ultra-montee-trail-du-grand-geneve",
+      "client": "Trail du Grand Genève",
+      "annee": 2026,
+      "categorie": "Reels",
+      "role": "Storyboard, direction artistique, montage",
+      "outils": "Premiere Pro, After Effects",
+      "image": "p/umtgg-poster.webp",
+      "video": "films/umtgg.mp4",
+      "apercu": "films/umtgg-loop.mp4",
+      "format": "vertical",
+      "diffusion": "Instagram, avec l’ambassadeur et les partenaires",
+      "youtube": "https://youtube.com/shorts/Y7n6y531y14",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "besoin": "Lancer et promouvoir un nouveau format de course à travers une vidéo dynamique pensée pour les réseaux sociaux, reprenant les codes du montage sportif et mettant en scène l’ambassadeur de la distance comme personnage central.",
+      "realisation": "Conception du storyboard, direction artistique et montage vidéo. Développement d’un storytelling immersif mettant en avant l’expérience sportive, rythmé par les images de course et les témoignages de l’ambassadeur.",
+      "resultat_chiffre": "45 K",
+      "resultat_texte": "vues générées. Lancement du teaser sur les réseaux sociaux, accompagné d’une communication croisée sur Instagram avec l’ambassadeur et l’ensemble des partenaires de l’événement.",
+      "boutons": [],
+      "visible": true,
+      "instagram": "https://www.instagram.com/reel/DYCq1JWolck/",
+      "vignette": "p/vt-umtgg.webp"
+    },
+    {
+      "theme": "V",
+      "titre": "Conférence romande des enfants · Palais fédéral",
+      "slug": "conference-romande-des-enfants-palais-federal",
+      "client": "Conférence romande des enfants",
+      "annee": 2026,
+      "categorie": "Aftermovies",
+      "role": "Storyboard, direction artistique, tournage, montage",
+      "outils": "Premiere Pro",
+      "image": "p/pf-poster.webp",
+      "video": "films/pf-film.mp4",
+      "apercu": "films/pf-loop.mp4",
+      "format": "horizontal",
+      "youtube": "https://youtu.be/jmIY7vxfq80",
+      "rushes": [
+        "p/pf-rush-1.webp",
+        "p/pf-rush-2.webp",
+        "p/pf-rush-3.webp",
+        "p/pf-rush-4.webp",
+        "p/pf-rush-5.webp"
+      ],
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "besoin": "Réaliser une vidéo rétrospective de la visite du Palais fédéral dans le cadre de la Conférence romande des enfants. Un contenu audiovisuel destiné à retracer les moments forts de l’événement et à valoriser l’expérience des participants et des intervenants.",
+      "realisation": "Conception du storyboard, direction artistique, réalisation des prises de vue et montage vidéo. Développement d’un storytelling immersif, centré sur le vécu, les échanges et les émotions des enfants, avec un ton à la fois humain et institutionnel.",
+      "resultat_chiffre": "",
+      "resultat_texte": "Publication sur les supports de communication de l’événement et relais auprès des partenaires dans le cadre d’une communication croisée.",
+      "boutons": [
+        {
+          "texte": "Voir sur YouTube",
+          "lien": "https://youtu.be/nsNBUsEVmRQ",
+          "style": "rouge",
+          "nouvel_onglet": true
+        },
+        {
+          "texte": "En savoir plus sur l’initiative",
+          "lien": "https://terredeshommessuisse.ch/notre-action/suisse/conference-des-enfants/",
+          "style": "contour",
+          "nouvel_onglet": true
+        }
+      ],
+      "visible": true,
+      "vignette": "p/vt-pf.webp"
+    },
+    {
+      "theme": "V",
+      "titre": "Nocturne des Evaux",
+      "slug": "nocturne-des-evaux",
+      "client": "Nocturne des Evaux",
+      "annee": 2026,
+      "categorie": "Aftermovies",
+      "role": "Storyboard, tournage, montage",
+      "outils": "Premiere Pro",
+      "image": "p/nde-poster.webp",
+      "video": "films/nde.mp4",
+      "apercu": "films/nde-loop.mp4",
+      "format": "vertical",
+      "diffusion": "Instagram, avec les partenaires",
+      "youtube": "https://youtube.com/shorts/pGu-16diIX4",
+      "instagram": "https://www.instagram.com/reel/DeR5Gj2Iega/",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "besoin": "Réaliser un aftermovie mettant en lumière les temps forts de la course, son ambiance et ses valeurs, à travers une vidéo dynamique adaptée au format réseaux sociaux.",
+      "realisation": "Conception du storyboard, réalisation des prises de vue et montage vidéo. Développement d’un storytelling valorisant l’expérience sportive, l’énergie des participants et les moments clés de l’événement.",
+      "resultat_chiffre": "",
+      "resultat_texte": "Publication de l’aftermovie sur les réseaux sociaux, accompagnée d’une communication croisée sur Instagram avec l’ensemble des partenaires de l’événement.",
+      "boutons": [],
+      "visible": true,
+      "vignette": "p/vt-nde.webp"
+    },
+    {
+      "theme": "D",
+      "titre": "Refonte du site Runningeneva",
+      "slug": "refonte-site-runningeneva",
+      "client": "Runningeneva",
+      "annee": 2026,
+      "categorie": "Sites web",
+      "role": "UX, UI, arborescence, templates",
+      "outils": "Figma, WordPress",
+      "image": "p/rg-hero.webp",
+      "video": "",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "palette": [
+        "#0E0F54",
+        "#D9F20B",
+        "#E54E4E",
+        "#3A2618",
+        "#F0EEE9"
+      ],
+      "typo": "Tanker",
+      "planche_texte": "Refonte du site internet Runningeneva en cohérence avec sa nouvelle identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant le calendrier annuel des courses.",
+      "ecrans": [
+        {
+          "titre": "Accueil",
+          "image": "p/rg-accueil.webp"
+        },
+        {
+          "titre": "Événements",
+          "image": "p/rg-evenements.webp"
+        },
+        {
+          "titre": "Coaching",
+          "image": "p/rg-coaching.webp"
+        },
+        {
+          "titre": "Actualités",
+          "image": "p/rg-actualites.webp"
+        },
+        {
+          "titre": "Collaboration",
+          "image": "p/rg-collaboration.webp"
+        }
+      ],
+      "besoin": "Moderniser le site internet en cohérence avec la nouvelle identité graphique de Runningeneva. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant le calendrier annuel des courses.",
+      "realisation": "Structuration des contenus et conception des parcours utilisateurs (UX) pour faciliter l’accès aux informations. Déclinaison de la nouvelle identité graphique dans une interface digitale intuitive (UI). Création de l’arborescence, de l’architecture des pages et des templates sur Figma. Préparation de la structure pour l’intégration WordPress, réalisée par une agence partenaire.",
+      "resultat_chiffre": "1 mois",
+      "resultat_texte": "Un site repensé, plus intuitif et fonctionnel, réalisé en 1 mois de la définition du projet à sa mise en ligne.",
+      "boutons": [
+        {
+          "texte": "Voir le site",
+          "lien": "https://runningeneva.ch/",
+          "style": "rouge",
+          "nouvel_onglet": true
+        },
+        {
+          "texte": "Voir l’annonce sur LinkedIn",
+          "lien": "https://www.linkedin.com/feed/update/urn:li:activity:7449335606528077824",
+          "style": "contour",
+          "nouvel_onglet": true
+        }
+      ],
+      "visible": true,
+      "typo_texte": "Poppins"
+    },
+    {
+      "theme": "D",
+      "titre": "Refonte du site Geneva Urban Trail",
+      "slug": "refonte-site-geneva-urban-trail",
+      "client": "Geneva Urban Trail",
+      "annee": 2026,
+      "categorie": "Sites web",
+      "role": "UX, UI, arborescence, templates",
+      "outils": "Figma, WordPress",
+      "image": "p/gut-hero.webp",
+      "video": "",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "palette": [
+        "#EE6336",
+        "#00A184",
+        "#81D4DA",
+        "#FEBE2D",
+        "#7D7DBD"
+      ],
+      "planche_texte": "Refonte du site internet Geneva Urban Trail en cohérence avec son identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant l’esprit et les différents formats de la course.",
+      "ecrans": [
+        {
+          "titre": "Accueil",
+          "image": "p/gut-accueil.webp"
+        },
+        {
+          "titre": "Événement",
+          "image": "p/gut-evenement.webp"
+        },
+        {
+          "titre": "Épreuves",
+          "image": "p/gut-epreuves.webp"
+        },
+        {
+          "titre": "Infos pratiques",
+          "image": "p/gut-infos.webp"
+        },
+        {
+          "titre": "Entreprises",
+          "image": "p/gut-entreprises.webp"
+        }
+      ],
+      "besoin": "Moderniser le site internet en cohérence avec l’identité graphique de Geneva Urban Trail. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant l’esprit et les différents formats de la course.",
+      "realisation": "Structuration des contenus et conception des parcours utilisateurs (UX) pour faciliter l’accès aux informations. Déclinaison de l’identité graphique dans une interface digitale intuitive (UI). Création de l’arborescence, de l’architecture des pages et des templates sur Figma. Préparation de la structure pour l’intégration WordPress, réalisée par une agence partenaire.",
+      "resultat_chiffre": "1 mois",
+      "resultat_texte": "Un site repensé, plus intuitif et fonctionnel, réalisé en 1 mois de la définition du projet à sa mise en ligne.",
+      "boutons": [
+        {
+          "texte": "Voir le site",
+          "lien": "https://geneva-urban-trail.ch/",
+          "style": "rouge",
+          "nouvel_onglet": true
+        }
+      ],
+      "visible": true,
+      "typo": "Bungee"
+    },
+    {
+      "theme": "D",
+      "titre": "Refonte du site Trail Run Évasion Rhône",
+      "slug": "refonte-site-run-evasion-rhone",
+      "client": "Trail Run Évasion Rhône",
+      "annee": 2026,
+      "categorie": "Sites web",
+      "role": "UX, UI, arborescence, templates, intégration",
+      "outils": "Figma, WordPress",
+      "image": "p/rer-hero.webp",
+      "video": "",
+      "supports": [],
+      "avant": "",
+      "apres": "",
+      "galerie": [],
+      "palette": [
+        "#FF0000",
+        "#000000",
+        "#FFFFFF",
+        "#F9E5E5",
+        "#E94E95",
+        "#A1C181"
+      ],
+      "accent": "#FF0000",
+      "typo": "Archivo",
+      "typo_css": "Archivo XC",
+      "typo_poids": 800,
+      "typo_texte": "Archivo",
+      "typo_texte_css": "Archivo XC",
+      "planche_texte": "Refonte du site internet Trail Run Évasion Rhône en cohérence avec son identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant les différents formats de course.",
+      "ecrans": [
+        {
+          "titre": "Accueil",
+          "image": "p/rer-accueil.webp"
+        },
+        {
+          "titre": "Épreuve 100 km",
+          "image": "p/rer-epreuve-100km.webp"
+        },
+        {
+          "titre": "Infos pratiques",
+          "image": "p/rer-infos.webp"
+        },
+        {
+          "titre": "Bénévoles",
+          "image": "p/rer-benevoles.webp"
+        },
+        {
+          "titre": "Entreprises / Partenaires",
+          "image": "p/rer-entreprises.webp"
+        }
+      ],
+      "besoin": "Moderniser le site internet en cohérence avec son identité graphique. Améliorer l’expérience utilisateur, simplifier la navigation et mettre en avant les différents formats de course.",
+      "realisation": "Structuration des contenus et conception des parcours utilisateurs (UX). Déclinaison de l’identité graphique (UI). Création de l’arborescence, de l’architecture des pages et des templates sur Figma avant intégration des pages sur WordPress.",
+      "resultat_chiffre": "1 semaine",
+      "resultat_texte": "Un site repensé, plus intuitif et fonctionnel, réalisé en 1 semaine de la définition du projet à sa mise en ligne.",
+      "boutons": [
+        {
+          "texte": "Voir le site",
+          "lien": "https://run-evasion-rhone.ch/",
+          "style": "rouge",
+          "nouvel_onglet": true
+        }
+      ],
+      "visible": true
+    }
+  ]
+}

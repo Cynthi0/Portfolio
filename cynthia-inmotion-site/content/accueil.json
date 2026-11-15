@@ -1,0 +1,282 @@
+{
+  "intro": {
+    "titre1": "Capter les émotions",
+    "titre2": "en mouvement.",
+    "texte": "Photographie, vidéo, montage, création visuelle et web au service des acteurs locaux qui font vivre et rayonner le canton de Genève.",
+    "invite": "Moteur… action !",
+    "lieu": "La rade · Genève",
+    "boutons": [
+      {
+        "texte": "Voir mes réalisations",
+        "lien": "#projets",
+        "style": "rouge",
+        "nouvel_onglet": false
+      }
+    ]
+  },
+  "outils": {
+    "titre": "Mes outils",
+    "groupes": [
+      {
+        "nom": "Photo",
+        "couleur": "corail",
+        "outils": [
+          {
+            "nom": "Photoshop",
+            "usage": "Retouche photo",
+            "icone": "pinceau",
+            "logo": "o/photoshop.webp"
+          },
+          {
+            "nom": "Lightroom",
+            "usage": "Développement photo",
+            "icone": "reglages",
+            "logo": "o/lightroom.webp"
+          }
+        ]
+      },
+      {
+        "nom": "Vidéo",
+        "couleur": "creme",
+        "outils": [
+          {
+            "nom": "Premiere Pro",
+            "usage": "Montage vidéo",
+            "icone": "montage",
+            "logo": "o/premiere-pro.webp"
+          },
+          {
+            "nom": "After Effects",
+            "usage": "Motion design",
+            "icone": "motion",
+            "logo": "o/after-effects.webp"
+          }
+        ]
+      },
+      {
+        "nom": "Design",
+        "couleur": "nuit",
+        "outils": [
+          {
+            "nom": "InDesign",
+            "usage": "Mise en page",
+            "icone": "mise-en-page",
+            "logo": "o/indesign.webp"
+          },
+          {
+            "nom": "Figma",
+            "usage": "Interfaces et maquettes",
+            "icone": "figma",
+            "logo": "o/figma.webp"
+          },
+          {
+            "nom": "WordPress",
+            "usage": "Sites web",
+            "icone": "web",
+            "logo": "o/wordpress.webp"
+          },
+          {
+            "nom": "Procreate",
+            "usage": "Illustration",
+            "icone": "crayon",
+            "logo": "o/procreate.webp"
+          }
+        ]
+      }
+    ]
+  },
+  "projets": {
+    "etiquette": "Portfolio",
+    "titre": "Mes projets",
+    "accent": "en mode focus",
+    "boutons": []
+  },
+  "services": {
+    "etiquette": "Services",
+    "titre": "Vos besoins",
+    "accent": "prennent vie",
+    "texte": "Des instants à capturer, des histoires à raconter ? Échangeons sur vos projets afin de leur donner vie ensemble.",
+    "boutons": [],
+    "cartes": [
+      {
+        "theme": "P",
+        "image": "p/jma-00.webp",
+        "texte": "Des images qui mettent en valeur vos événements, leurs acteurs et les instants qui les rendent uniques.",
+        "points": [
+          "Photographie sportive et événementielle",
+          "Conférences, séminaires et événements professionnels",
+          "Portraits d’intervenants et photos d’équipe",
+          "Sélection, retouche et traitement des images"
+        ],
+        "bouton_devis": "Me contacter",
+        "lien_projets": "Voir les projets photo",
+        "boutons": []
+      },
+      {
+        "theme": "V",
+        "image": "p/svc-video.webp",
+        "texte": "Du mouvement, du rythme et des émotions : des vidéos pensées pour faire revivre vos événements et marquer les esprits.",
+        "points": [
+          "Aftermovies sportifs et événementiels",
+          "Reels et formats courts pour les réseaux sociaux",
+          "Interviews et vidéos promotionnelles",
+          "Montage, étalonnage et motion design"
+        ],
+        "bouton_devis": "Me contacter",
+        "lien_projets": "Voir les projets vidéo",
+        "boutons": []
+      },
+      {
+        "theme": "D",
+        "image": "b/design-banner.webp",
+        "texte": "Une identité claire et cohérente, de l'affiche au site web.",
+        "points": [
+          "Logos et identités visuelles",
+          "Affiches, flyers et programmes",
+          "Visuels pour les réseaux sociaux",
+          "Sites web WordPress"
+        ],
+        "bouton_devis": "Me contacter",
+        "lien_projets": "Voir les projets design",
+        "boutons": []
+      }
+    ]
+  },
+  "apropos": {
+    "etiquette": "À propos",
+    "titre": "Mon univers",
+    "accent": "visuel",
+    "portrait": "p/portrait.webp",
+    "chapo": "Photographe et vidéaste basée à Genève, je donne vie aux événements sportifs et associatifs des acteurs du bassin genevois.",
+    "texte": "",
+    "note": "",
+    "lien": "Découvrir mon parcours",
+    "boutons": [],
+    "page": {
+      "titre": "À propos",
+      "chiffres": [],
+      "paragraphes": [],
+      "note": "",
+      "boutons": [
+        {
+          "texte": "Voir mes réalisations",
+          "lien": "#projets",
+          "style": "rouge",
+          "nouvel_onglet": false
+        },
+        {
+          "texte": "Me contacter",
+          "lien": "#contact",
+          "style": "contour",
+          "nouvel_onglet": false
+        }
+      ],
+      "anime": {
+        "titre": "Ce qui",
+        "accent": "m’anime ?",
+        "items": [
+          {
+            "titre": "Le mouvement",
+            "texte": "Saisir l'énergie et l'intensité de chaque instant.",
+            "anim": "mouvement",
+            "court": "L’énergie de l’instant."
+          },
+          {
+            "titre": "L’humain",
+            "texte": "Mettre en lumière celles et ceux qui portent des projets à l’échelle locale.",
+            "anim": "humain",
+            "court": "Les acteurs du terrain."
+          },
+          {
+            "titre": "L’émotion",
+            "texte": "Transmettre ce qui rend chaque moment unique.",
+            "anim": "emotion",
+            "court": "Les moments qui comptent."
+          },
+          {
+            "titre": "La créativité",
+            "texte": "Utiliser toutes les technologies et créer du lien entre elles pour donner vie aux idées.",
+            "anim": "creativite",
+            "court": "Relier outils et idées."
+          }
+        ]
+      },
+      "competences": {
+        "etiquette": "Domaines de compétences",
+        "titre": "Mes angles",
+        "accent": "de vue",
+        "items": [
+          {
+            "titre": "Photographie",
+            "texte": "Photographie sportive et événementielle, conférences et événements professionnels, portraits d’intervenants et photos d’équipe. Sélection, retouche et traitement des images.",
+            "lien": "#photo",
+            "lien_texte": "Voir les projets photo"
+          },
+          {
+            "titre": "Vidéo & montage",
+            "texte": "Aftermovies sportifs et événementiels, reels et formats courts pour les réseaux sociaux, interviews et vidéos promotionnelles. Montage, étalonnage et motion design.",
+            "lien": "#video",
+            "lien_texte": "Voir les projets vidéo"
+          },
+          {
+            "titre": "Design & web",
+            "texte": "Création et refonte de sites internet, logos et identités visuelles, affiches, flyers et programmes, visuels pour les réseaux sociaux.",
+            "lien": "#design",
+            "lien_texte": "Voir les projets design"
+          }
+        ]
+      },
+      "vision": {
+        "etiquette": "Ma façon de travailler",
+        "titre": "Ma",
+        "accent": "méthode",
+        "items": [
+          {
+            "titre": "L’échange",
+            "texte": "Un premier rendez-vous pour comprendre vos besoins, votre identité et vos objectifs avant de créer."
+          },
+          {
+            "titre": "Le tournage ou la création",
+            "texte": "Sur le terrain ou derrière l’écran, je capte et je conçois des contenus fidèles à votre histoire, en photo, en vidéo ou en design."
+          },
+          {
+            "titre": "La livraison",
+            "texte": "Des contenus prêts à être diffusés, adaptés à chaque support : réseaux sociaux, site web ou impression."
+          }
+        ]
+      },
+      "parcours": {
+        "etiquette": "Mon parcours",
+        "titre": "D’où je",
+        "accent": "viens",
+        "etapes": [
+          {
+            "date": "2016 — 2023",
+            "titre": "Se professionnaliser",
+            "texte": "En parallèle de mes études, je rejoins la cellule communication du 1er Régiment de Chasseurs Parachutistes, où je développe mes compétences en photographie, design, web et vidéo jusqu’en 2023."
+          },
+          {
+            "date": "2021",
+            "titre": "Master en poche",
+            "texte": "Diplômée d’un Master en communication digitale et audiovisuelle, je développe une approche polyvalente, de la stratégie à la création de contenus, pour concevoir des communications cohérentes et créatives."
+          },
+          {
+            "date": "2023",
+            "titre": "Arrivée à Genève",
+            "texte": "En 2023, mon arrivée à Genève me permet de découvrir un tissu associatif dynamique, porté par des acteurs engagés et des projets qui méritent d’être mis en lumière."
+          },
+          {
+            "date": "2025 — jusqu’à nos jours",
+            "titre": "Mon parcours aujourd’hui",
+            "texte": "Chargée de communication dans une association genevoise, je mets ma créativité au service du sport et de ses acteurs, en racontant les histoires humaines derrière les événements, les engagements et les défis."
+          }
+        ],
+        "difference": {
+          "titre": "Ce qui me différencie",
+          "texte": "Empathique et sensible aux émotions, j’aime capturer ces instants qui racontent une histoire : un effort, un engagement, une rencontre ou une réussite. Polyvalente, je maîtrise différents supports et formats pour construire une communication cohérente, authentique et porteuse de sens."
+        }
+      },
+      "logos": true
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "bandeau": "Ils me font confiance",
+  "logos": [
+    {
+      "nom": "Plateforme Souveraineté alimentaire",
+      "logo": "c/plateforme-souverainete-alimentaire.png"
+    },
+    {
+      "nom": "Terre des Hommes Suisse",
+      "logo": "c/terre-des-hommes-suisse.png"
+    },
+    {
+      "nom": "Running Geneva",
+      "logo": "c/running-geneva.png"
+    },
+    {
+      "nom": "Tereo",
+      "logo": "c/tereo.png"
+    }
+  ],
+  "etiquette": "Témoignages",
+  "titre": "Leur retour",
+  "accent": "d’expérience",
+  "bouton_laisser": "Laisser un témoignage",
+  "note": "",
+  "boutons": [],
+  "liste": []
+}

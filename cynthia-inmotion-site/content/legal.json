@@ -1,0 +1,30 @@
+{
+  "titre": "Mentions légales",
+  "maj": "novembre 2026",
+  "sections": [
+    {
+      "titre": "Éditrice du site",
+      "texte": "Cynthia Guerrero · Cynthia.inmotion\nGenève, Suisse\nE-mail : guerrero-cynthi@hotmail.com"
+    },
+    {
+      "titre": "Hébergement",
+      "texte": "Le site est hébergé par Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis (service Cloudflare Pages)."
+    },
+    {
+      "titre": "Propriété intellectuelle",
+      "texte": "Les photographies, vidéos, textes et créations graphiques présentés sur ce site sont la propriété de Cynthia.inmotion ou de ses clients. Toute reproduction ou utilisation sans autorisation écrite préalable est interdite."
+    },
+    {
+      "titre": "Protection des données",
+      "texte": "Ce site respecte la loi fédérale suisse sur la protection des données (LPD). Il ne dépose aucun cookie publicitaire et ne contient aucun outil de suivi commercial.\n\nLorsque vous utilisez le formulaire de contact ou le formulaire de témoignage, les informations saisies (nom, e-mail, message, structure) sont transmises par e-mail via le service Web3Forms, uniquement pour répondre à votre demande ou pour publier votre témoignage avec votre accord. Elles ne sont ni revendues ni utilisées à d'autres fins, et sont supprimées lorsqu'elles ne sont plus nécessaires.\n\nPour afficher le site, l'hébergeur (Cloudflare) et le service de polices de caractères (Google Fonts) peuvent traiter techniquement votre adresse IP. Ces prestataires peuvent être situés hors de Suisse.\n\nLes films hébergés sur YouTube ne se chargent que lorsque vous cliquez pour les lire (mode « sans cookie » de YouTube). Les liens vers Instagram vous mènent sur ce service, soumis à ses propres règles de confidentialité."
+    },
+    {
+      "titre": "Vos droits",
+      "texte": "Vous pouvez à tout moment demander l'accès à vos données, leur rectification ou leur suppression, et retirer votre accord à la publication d'un témoignage, en écrivant à guerrero-cynthi@hotmail.com."
+    },
+    {
+      "titre": "Responsabilité",
+      "texte": "Les informations de ce site sont fournies à titre indicatif. Cynthia.inmotion ne saurait être tenue responsable du contenu des sites externes vers lesquels des liens renvoient."
+    }
+  ]
+}
