@@ -1,11 +1,11 @@
 {
-  "etiquette": "Contact",
-  "titre": "Un projet ?",
-  "accent": "Parlons-en.",
-  "texte": "",
-  "email": "guerrero-cynthi@hotmail.com",
-  "boutons": [],
   "bouton_email": "Contactez-moi directement",
+  "boutons": [],
+  "accent": "Parlons-en.",
+  "instagram_texte": "Suivez-moi sur Instagram",
+  "titre": "Un projet ?",
   "instagram": "https://www.instagram.com/cynthia.inmotion/",
-  "instagram_texte": "Suivez-moi sur Instagram"
+  "texte": "",
+  "email": "guerrero-cynthia@hotmail.com",
+  "etiquette": "Contact"
 }
