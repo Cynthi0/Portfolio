@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CH">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -723,6 +723,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .mt:hover .pl{opacity:0}
 .sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid rgba(28,41,56,.15);padding-top:22px}
 .sec-h h2{margin:0;font-family:var(--f-imp);font-weight:800;font-stretch:66%;text-transform:uppercase;font-size:clamp(30px,3.4vw,46px);line-height:.9}
+.seo-loc{margin:64px 0 40px;max-width:820px}.seo-loc p{margin:16px 0 0;font-size:17px;line-height:1.6;opacity:.85}
 .sec-h h2 em{font-family:var(--f-ser);font-weight:300;font-style:normal;text-transform:none;color:var(--rouge);font-stretch:100%}
 .sec-h .mono{opacity:.78}
 
@@ -1333,6 +1334,9 @@ canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .plb button{width:44px;height:44px;border-radius:50%;border:0;background:rgba(246,239,228,.14);color:var(--creme);cursor:pointer;display:grid;place-items:center}
 .plb button:hover{background:rgba(246,239,228,.26)}.plb button svg{width:14px;height:14px}
 .plb .x2{position:absolute;top:16px;right:16px}
+.plb video{max-width:min(100%,1600px);max-height:calc(100svh - 150px);border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.4);background:#000}.plb img[hidden],.plb video[hidden]{display:none}
+.alb .mt video{width:100%;height:100%;object-fit:cover;display:block;opacity:1;position:static}.alb .mt .vplay{position:absolute;left:12px;bottom:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(18,28,40,.6);display:grid;place-items:center;color:#fff}.alb .mt .vplay svg{width:12px;height:12px}
+.free-im video{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:860px){.ser-pg{grid-template-rows:none;grid-auto-rows:150px}.ser-tr{gap:8px}.mt.h3{grid-row:span 2}.mt.f3{grid-row:span 3}.ser-nav .ar2{width:36px;height:36px}}
 
 /* bande d'ouverture : logos clients */
@@ -1924,8 +1928,9 @@ window.applyContent = C => {
   const G = C.general, A = C.accueil, T = C.temoignages, K = C.contact, TH = C.projets.themes, PJ = C.projets.projets.filter(p => p.visible !== false && p.titre);
   const thn = k => (TH.find(t => t.cle === k) || {}).nom || k, ROUTE = { P: 'photo', V: 'video', D: 'design' };
   // en-tête, menu, référencement
-  document.title = G.site_titre || document.title;
-  let md = q('meta[name="description"]'); if (!md) { md = document.createElement('meta'); md.name = 'description'; document.head.appendChild(md); } md.content = G.description || '';
+  const S0 = ((window.SEO || {}).pages || {})['/'];
+  document.title = (S0 && S0.title) || G.site_titre || document.title;
+  let md = q('meta[name="description"]'); if (!md) { md = document.createElement('meta'); md.name = 'description'; document.head.appendChild(md); } md.content = (S0 && S0.desc) || G.description || '';
   const nv = G.nav || {};
   qa('.mainnav .nl').forEach(a => { a.textContent = (a.dataset.k ? thn(a.dataset.k) : nv.apropos) || a.textContent; });
   q('#skip').textContent = nv.passer_intro || q('#skip').textContent; q('.mainnav .cta').textContent = nv.contact || 'Me contacter';
@@ -1982,13 +1987,13 @@ window.applyContent = C => {
   ft[1].innerHTML = [['photo', thn('P')], ['video', thn('V')], ['design', thn('D')], ['contact', 'Contact']].map(([h, n]) => `<a href="#${h}">${E(n)}</a>`).join(' · ') + (K.instagram ? ` · <a href="${E(K.instagram)}" target="_blank" rel="noopener">Instagram</a>` : '');
   // sections libres ajoutées depuis l'administration
   window.freeSecHTML = x => { const id = x.ancre ? ` id="${E(x.ancre)}"` : '';
-    return `<section class="free f-${E(x.fond || 'creme')}${x.image ? ' has-img' : ''}"${id}><div class="free-in">${x.image ? `<figure class="free-im"><img src="${E(x.image)}" alt="" loading="lazy"></figure>` : ''}<div class="free-tx">
+    return `<section class="free f-${E(x.fond || 'creme')}${x.image ? ' has-img' : ''}"${id}><div class="free-in">${x.image ? `<figure class="free-im">${/\.(mp4|webm|mov|m4v)(\?|$)/i.test(x.image) ? `<video src="${E(x.image)}" muted loop playsinline autoplay controls></video>` : `<img src="${E(x.image)}" alt="" loading="lazy">`}</figure>` : ''}<div class="free-tx">
       ${x.etiquette ? `<span class="lbl-r mono">${E(x.etiquette)}</span>` : ''}${x.titre ? `<h2 class="h2">${ttl(x.titre, x.accent)}</h2>` : ''}
       ${(x.texte || '').split(/\n\s*\n/).filter(Boolean).map(p => `<p>${E(p).replace(/\n/g, '<br>')}</p>`).join('')}${window.btnsWrap(x.boutons)}</div></div></section>`; };
   const POS = { 'apres-intro': '#intro', 'apres-projets': '#projets', 'apres-services': '#services', 'apres-temoignages': '.trust2', 'apres-contact': '#contact' };
   [...((C.sections || {}).sections || [])].reverse().forEach((x, i) => { if (x.visible === false) return; const at = q(POS[x.position] || '#contact'); if (!at) return;
     const id = x.ancre ? ` id="${E(x.ancre)}"` : '';
-    after(at, `<section class="free f-${E(x.fond || 'creme')}${x.image ? ' has-img' : ''}"${id}><div class="free-in">${x.image ? `<figure class="free-im"><img src="${E(x.image)}" alt="" loading="lazy"></figure>` : ''}<div class="free-tx">
+    after(at, `<section class="free f-${E(x.fond || 'creme')}${x.image ? ' has-img' : ''}"${id}><div class="free-in">${x.image ? `<figure class="free-im">${/\.(mp4|webm|mov|m4v)(\?|$)/i.test(x.image) ? `<video src="${E(x.image)}" muted loop playsinline autoplay controls></video>` : `<img src="${E(x.image)}" alt="" loading="lazy">`}</figure>` : ''}<div class="free-tx">
       ${x.etiquette ? `<span class="lbl-r mono">${E(x.etiquette)}</span>` : ''}${x.titre ? `<h2 class="h2">${ttl(x.titre, x.accent)}</h2>` : ''}
       ${(x.texte || '').split(/\n\s*\n/).filter(Boolean).map(p => `<p>${E(p).replace(/\n/g, '<br>')}</p>`).join('')}${window.btnsWrap(x.boutons)}</div></div></section>`); });
 };
@@ -2003,16 +2008,18 @@ window.__boot1 = () => {
   const ROUTE = { P: 'photo', V: 'video', D: 'design' };
   const TH = C.projets.themes.map(t => ({ k: t.cle, n: t.nom, route: ROUTE[t.cle], lead: t.texte, bg: t.fond, po: t.affiche || '',
     items: C.projets.projets.filter(p => p.theme === t.cle && p.visible !== false && p.titre).sort((a, b) => (b.en_avant === true) - (a.en_avant === true)).map(p => ({ s: p.slug || p.titre.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
-      t: p.titre, c: p.client || '', y: p.annee || '', img: p.image || 'p/01.webp', tb: p.vignette || p.image || 'p/01.webp', cat: p.categorie || '', role: p.role || '', tools: p.outils || '',
-      vid: p.apercu || p.video || undefined, film: p.video || undefined, vert: p.format === 'vertical', sup: p.supports && p.supports.length ? p.supports : undefined, raw: p })) }));
+      t: p.titre, c: p.client || '', y: p.annee || '', ...(() => { const VX = u => /\.(mp4|webm|mov|m4v)(\?|$)/i.test(u || ''), g1 = (p.galerie || []).map(g => g && (g.image || g)).find(u => u && typeof u === 'string' && !VX(u)), im = VX(p.image) ? (VX(p.vignette) ? '' : p.vignette) || g1 || 'p/01.webp' : p.image || 'p/01.webp'; return { img: im, tb: p.vignette && !VX(p.vignette) ? p.vignette : im, hv: p.video_entete || (VX(p.image) ? p.image : VX(p.vignette) ? p.vignette : '') }; })(), cat: p.categorie || '', role: p.role || '', tools: p.outils || '',
+      vid: p.apercu || p.video || (/\.(mp4|webm|mov|m4v)(\?|$)/i.test(p.image || '') ? p.image : /\.(mp4|webm|mov|m4v)(\?|$)/i.test(p.vignette || '') ? p.vignette : undefined), film: p.video || undefined, vert: p.format === 'vertical', sup: p.supports && p.supports.length ? p.supports : undefined, raw: p })) }));
   TH.forEach(t => t.items.forEach(p => p.th = t));
   const ALL = TH.flatMap(t => t.items);
+  // texte alternatif des images (référencement) : « Titre – Client, photo Cynthia.inmotion à Genève »
+  const ALT = (p, n) => { const k = { P: 'photo', V: 'vidéo', D: 'design' }[p.th ? p.th.k : ''] || 'projet'; return String((p.raw && p.raw.alt) || `${p.t}${p.c && p.c !== p.t ? ' – ' + p.c : ''}, ${k} Cynthia.inmotion à Genève`).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;') + (n ? ` (${n})` : ''); };
 
   // ---------- accueil : 3 panneaux ; celui qu'on survole (ou touche) s'ouvre ----------
   const ACC = $('sel');
   ACC.className = 'acc';
   ACC.innerHTML = TH.map((t, ti) => { const it = t.items.slice(0, 3); return `<div class="pn3${ti === 0 ? ' on' : ''}" data-k="${t.k}" role="group" aria-label="${t.n}">
-    <div class="md">${it.map((p, i) => p.vid ? `<video data-src="${p.vid}" poster="${p.img}" muted loop playsinline preload="none"${i === 0 ? ' class="on"' : ''}></video>` : `<img src="${p.img}" alt=""${i === 0 ? ' class="on"' : ''} loading="lazy">`).join('')}</div>
+    <div class="md">${it.map((p, i) => p.vid ? `<video data-src="${p.vid}" poster="${p.img}" muted loop playsinline preload="none"${i === 0 ? ' class="on"' : ''}></video>` : `<img src="${p.img}" alt="${ALT(p)}"${i === 0 ? ' class="on"' : ''} loading="lazy">`).join('')}</div>
     <button class="hit" type="button" aria-label="Ouvrir ${t.n}"></button><span class="plus" aria-hidden="true"><svg viewBox="0 0 12 12" width="12" height="12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.6"/></svg></span>
     <div class="lab"><b aria-hidden="true">${t.k}</b><span>${t.n}</span></div>
     <div class="info"><h3>${it[0].t}</h3><div class="det"><div class="acts3"><span class="mono cl">${it[0].c} · ${it[0].y}</span><a class="go4" href="#projet-${it[0].s}">Voir le projet ${ARR}</a><a class="all" href="#${t.route}">Voir les projets ${t.n.toLowerCase()} ${ARR}</a></div>
@@ -2163,8 +2170,8 @@ window.__boot1 = () => {
   let mounted = null;
   const foot = (t, n) => `<div class="foot"><span class="mono">${n} projets sur ${t.items.length}</span><a class="more" href="#${t.route}">Voir tous les projets ${t.n.toLowerCase()} ${ARR}</a></div>`;
   const build = {
-    P: t => `<div class="vgrid">${t.items.slice(0, 5).map((p, i) => `<a class="vc${i === 0 ? ' big' : ''}" href="#projet-${p.s}"><img src="${p.img}" alt="" loading="lazy"><span class="af2"><i></i><i></i><i></i><i></i><span class="mono">AF · 1/250 · F2.8</span></span><span class="t"><b>${p.t}</b><small class="mono">${p.c} · ${p.y}</small></span></a>`).join('')}</div>${foot(t, 5)}`,
-    V: t => { const it = t.items.slice(0, 4); return `<div class="edit"><div class="mon">${it.map(p => p.vid ? `<video src="${p.vid}" poster="${p.img}" muted loop playsinline preload="none"></video>` : `<img src="${p.img}" alt="" loading="lazy">`).join('')}<div class="ov"><div class="row mono"><span><span class="dt">●</span> Vidéo</span><span class="tcx">00:00:00:00</span></div><div class="row"><div><span class="mono cl"></span><h3></h3></div><a class="more go3" href="#">Voir le projet ${ARR}</a></div></div><span class="pause mono">❚❚ Pause</span></div>
+    P: t => `<div class="vgrid">${t.items.slice(0, 5).map((p, i) => `<a class="vc${i === 0 ? ' big' : ''}" href="#projet-${p.s}"><img src="${p.img}" alt="${ALT(p)}" loading="lazy"><span class="af2"><i></i><i></i><i></i><i></i><span class="mono">AF · 1/250 · F2.8</span></span><span class="t"><b>${p.t}</b><small class="mono">${p.c} · ${p.y}</small></span></a>`).join('')}</div>${foot(t, 5)}`,
+    V: t => { const it = t.items.slice(0, 4); return `<div class="edit"><div class="mon">${it.map(p => p.vid ? `<video src="${p.vid}" poster="${p.img}" muted loop playsinline preload="none"></video>` : `<img src="${p.img}" alt="${ALT(p)}" loading="lazy">`).join('')}<div class="ov"><div class="row mono"><span><span class="dt">●</span> Vidéo</span><span class="tcx">00:00:00:00</span></div><div class="row"><div><span class="mono cl"></span><h3></h3></div><a class="more go3" href="#">Voir le projet ${ARR}</a></div></div><span class="pause mono">❚❚ Pause</span></div>
       <div class="lane2"><div class="area"><div class="ruler2">${[0, 4.5, 9, 13.5, 18].map(s => `<span style="left:${s / 18 * 100}%">00:00:${String(Math.floor(s)).padStart(2, '0')}:${s % 1 ? '12' : '00'}</span>`).join('')}</div>
       <div class="trk2 v2"><span class="tn">V2</span></div><div class="trk2 v1"><span class="tn">V1</span></div><div class="trk2 au"><span class="tn">A1</span><svg class="wave" viewBox="0 0 400 20" preserveAspectRatio="none" aria-hidden="true"><path d=""/></svg></div><span class="ph"></span></div></div></div>${foot(t, 4)}`; },
     D: t => { const web = t.items.filter(p => p.cat === 'Sites web').concat(t.items.filter(p => p.cat !== 'Sites web')).slice(0, 3);
@@ -2287,12 +2294,13 @@ ${foot(t, 6)}`; }
       <div class="in">
       ${t.items.length > 6 && cs.length > 1 ? `<div class="fbar" role="group" aria-label="Filtrer les projets"><span class="mono">Filtrer</span><button class="fch" type="button" aria-pressed="true" data-c="">Tous<small>${t.items.length}</small></button>${cs.map(c => `<button class="fch" type="button" aria-pressed="false" data-c="${c}">${c}<small>${t.items.filter(p => p.cat === c).length}</small></button>`).join('')}</div>` : ''}
       <div class="mos" id="mos"></div>
+      ${(() => { const x = ((window.SEO || {}).themes || {})[t.k]; return x && x.texte ? `<section class="seo-loc"><div class="sec-h"><h2>${x.titre_txt || t.n}${x.accent ? ` <em>${x.accent}</em>` : ''}</h2></div><p>${x.texte}</p></section>` : ''; })()}
       ${cta}</div>`;
   }
   // tailles de la mosaïque selon le nombre de projets affichés (pas de trou dans la grille)
   const mcls = (i, n) => n === 1 ? 'xl' : n === 2 ? 'big' : n === 3 ? ['big', 'wide', 'wide'][i] : n === 5 && i === 4 ? 'xl' : ['big', '', '', 'wide', 'wide ws', 'wide ws'][i % 6];
   function renderMos(el, list) {
-    el.innerHTML = list.map((p, i) => `<a class="mt ${mcls(i, list.length)}${p.raw.ecrans && p.raw.ecrans.length ? ' web' : ''} th-in" style="animation-delay:${i * 60}ms" href="#projet-${p.s}"><img src="${p.tb}" alt="" loading="lazy">${p.vid ? `<video data-src="${p.vid}" muted loop playsinline preload="none"></video>` : ''}
+    el.innerHTML = list.map((p, i) => `<a class="mt ${mcls(i, list.length)}${p.raw.ecrans && p.raw.ecrans.length ? ' web' : ''} th-in" style="animation-delay:${i * 60}ms" href="#projet-${p.s}"><img src="${p.tb}" alt="${ALT(p)}" loading="lazy">${p.vid ? `<video data-src="${p.vid}" muted loop playsinline preload="none"></video>` : ''}
       <span class="no">${String(i + 1).padStart(2, '0')}</span>${p.cat ? `<span class="ct">${p.cat}</span>` : ''}${p.vid ? '<span class="pl" aria-hidden="true"><i></i></span>' : ''}
       <span class="tx"><span><b>${p.t}</b><small>${p.c} · ${p.y}</small></span><span class="ar" aria-hidden="true">${ARR}</span></span></a>`).join('');
     el.querySelectorAll('.mt').forEach(a => { const v = a.querySelector('video'); if (!v) return;
@@ -2537,9 +2545,9 @@ ${foot(t, 6)}`; }
     // mise en page selon l'orientation : les photos verticales vont dans des cases hautes, les horizontales dans les cases larges
     const LAY = { 0: ['big', 'wide', 'wide', '', '', 'wide'], 1: ['big', 'wide', 'wide', '', '', 'wide'], 2: ['tall', 'big', 'tall', '', '', 'wide'], 3: ['tall', 'big', 'tall', '', '', 'wide'], 4: ['tall', 'tall', 'tall', 'tall', 'wide', 'wide'] };
     const NEED = { tall: 'P', h3: 'P', big: 'L', wide: 'L', f3: 'L' };
-    const ori = im => im.naturalWidth ? (im.naturalHeight > im.naturalWidth * 1.05 ? 'P' : 'L') : 'L';
+    const ori = im => { const w = im && (im.naturalWidth || im.videoWidth), h = im && (im.naturalHeight || im.videoHeight); return w ? (h > w * 1.05 ? 'P' : 'L') : 'L'; };
     const layout = pg => {
-      const cells = [...pg.children], n = cells.length, o = cells.map(c => ori(c.querySelector('img')));
+      const cells = [...pg.children], n = cells.length, o = cells.map(c => ori(c.querySelector('img,video')));
       const np = o.filter(x => x === 'P').length;
       let slots = n === 6 ? LAY[Math.min(np, 4)] : cells.map(c => [...c.classList].find(k => k in NEED) || '');
       if (n === 2) slots = ['h3', 'h3'];
@@ -2555,25 +2563,26 @@ ${foot(t, 6)}`; }
       sr.querySelectorAll('.ser-pg').forEach(layout);
       sr.querySelectorAll('.mt').forEach((b, k) => { b.dataset.k = k; b.setAttribute('aria-label', `Agrandir la photo ${k + 1}`); });
     };
-    Promise.all([...sr.querySelectorAll('.mt img')].map(im => im.complete ? 0 : new Promise(r => { im.addEventListener('load', r, { once: true }); im.addEventListener('error', r, { once: true }); setTimeout(r, 4000); }))).then(done);
+    Promise.all([...sr.querySelectorAll('.mt img, .mt video')].map(im => (im.tagName === 'VIDEO' ? im.readyState >= 1 : im.complete) ? 0 : new Promise(r => { im.addEventListener(im.tagName === 'VIDEO' ? 'loadedmetadata' : 'load', r, { once: true }); im.addEventListener('error', r, { once: true }); setTimeout(r, 4000); }))).then(done);
     sr.querySelectorAll('.mt img').forEach(im => im.loading = 'eager');
-    sr.addEventListener('click', e => { const b = e.target.closest('.mt'); if (!b) return; const imgs = [...sr.querySelectorAll('.mt img')].map(x => x.getAttribute('src')); openPhoto(imgs, +b.dataset.k, b); });
+    sr.addEventListener('click', e => { const b = e.target.closest('.mt'); if (!b) return; const imgs = [...sr.querySelectorAll('.mt')].map(m => { const x = m.querySelector('img,video'); return x ? x.getAttribute('src').replace(/#t=[\d.]+$/, '') : ''; }); openPhoto(imgs, +b.dataset.k, b); });
   }
   function openPhoto(list, start, from) {
     let lb = $('plb');
     if (!lb) {
       lb = document.createElement('div'); lb.id = 'plb'; lb.className = 'plb'; lb.hidden = true;
       lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Photo agrandie');
-      lb.innerHTML = '<button class="x2" type="button" aria-label="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.8"/></svg></button><figure><img alt=""></figure><div class="cap"><button type="button" data-d="-1" aria-label="Photo précédente"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button><span class="mono"></span><button type="button" data-d="1" aria-label="Photo suivante"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button></div>';
+      lb.innerHTML = '<button class="x2" type="button" aria-label="Fermer"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.8"/></svg></button><figure><img alt=""><video controls playsinline hidden></video></figure><div class="cap"><button type="button" data-d="-1" aria-label="Photo précédente"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button><span class="mono"></span><button type="button" data-d="1" aria-label="Photo suivante"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></button></div>';
       document.body.appendChild(lb);
     }
     const im = lb.querySelector('img'), ct = lb.querySelector('.cap .mono'), cap = lb.querySelector('.cap');
     let k = start;
-    const show = j => { k = (j + list.length) % list.length; im.src = list[k]; ct.textContent = `${k + 1} / ${list.length}`; };
-    const close = () => { lb.hidden = true; document.documentElement.style.overflow = ''; document.removeEventListener('keydown', key); window.removeEventListener('hashchange', close); lb.onclick = null; if (from) from.focus({ preventScroll: true }); };
+    const vd = lb.querySelector('video');
+    const show = j => { k = (j + list.length) % list.length; const isv = /\.(mp4|webm|mov|m4v)(\?|$)/i.test(list[k]); vd.pause(); im.hidden = isv; vd.hidden = !isv; if (isv) { vd.src = list[k]; vd.play().catch(() => {}); } else { vd.removeAttribute('src'); im.src = list[k]; } ct.textContent = `${k + 1} / ${list.length}`; };
+    const close = () => { vd.pause(); lb.hidden = true; document.documentElement.style.overflow = ''; document.removeEventListener('keydown', key); window.removeEventListener('hashchange', close); lb.onclick = null; if (from) from.focus({ preventScroll: true }); };
     const key = e => { if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') show(k + 1); if (e.key === 'ArrowLeft') show(k - 1); };
     cap.hidden = list.length < 2;
-    lb.onclick = e => { const b = e.target.closest('button'); if (b && b.classList.contains('x2')) return close(); if (b && b.dataset.d) return show(k + +b.dataset.d); if (!e.target.closest('img')) close(); };
+    lb.onclick = e => { const b = e.target.closest('button'); if (b && b.classList.contains('x2')) return close(); if (b && b.dataset.d) return show(k + +b.dataset.d); if (!e.target.closest('img, video')) close(); };
     let sx = null; lb.ontouchstart = e => { sx = e.touches[0].clientX; }; lb.ontouchend = e => { if (sx == null) return; const dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 40 && list.length > 1) show(k + (dx < 0 ? 1 : -1)); };
     show(start); lb.hidden = false; document.documentElement.style.overflow = 'hidden';
     document.addEventListener('keydown', key); window.addEventListener('hashchange', close); lb.querySelector('.x2').focus({ preventScroll: true });
@@ -2582,14 +2591,14 @@ ${foot(t, 6)}`; }
     const t = p.th, list = t.items, i = list.indexOf(p), nx = list[(i + 1) % list.length], pv = list[(i - 1 + list.length) % list.length], vsrc = p.vid || (i % 2 ? 'b/montage.mp4' : 'b/video.mp4');
     const film = p.film || vsrc;
     const storyH = `<div class="story"><div><span class="n">01</span><h3>Le besoin</h3>${pr(p.raw.besoin, 'Texte provisoire : en deux phrases, la demande du client et son contexte.')}</div><div><span class="n">02</span><h3>La réalisation</h3>${pr(p.raw.realisation, 'Texte provisoire : les étapes clés, du repérage à la livraison.')}</div><div><span class="n">03</span><h3>Le résultat</h3>${p.raw.resultat_chiffre ? `<span class="big${String(p.raw.resultat_chiffre).length > 6 ? ' rlong' : ''}">${p.raw.resultat_chiffre}</span>` : p.raw.resultat_texte ? '' : '<span class="big">+00 %</span>'}${pr(p.raw.resultat_texte, 'Chiffre provisoire : vues, inscriptions ou retour concret du client.')}</div></div>`;
-    const media = t.k === 'V' ? `<video class="bgm${p.vert ? ' vert' : ''}" id="pv" src="${vsrc}" poster="${p.img}" muted loop playsinline autoplay></video>` : `<img class="bgm" src="${p.img}" alt=""${p.raw.cadrage ? ` style="object-position:50% ${{haut: 0, centre: 50, bas: 100}[p.raw.cadrage] ?? 28}%"` : ''}>`;
+    const media = t.k !== 'V' && p.hv ? `<video class="bgm" src="${p.hv}" poster="${p.img}" muted loop playsinline autoplay></video>` : t.k === 'V' ? `<video class="bgm${p.vert ? ' vert' : ''}" id="pv" src="${vsrc}" poster="${p.img}" muted loop playsinline autoplay></video>` : `<img class="bgm" src="${p.img}" alt="${ALT(p)}"${p.raw.cadrage ? ` style="object-position:50% ${{haut: 0, centre: 50, bas: 100}[p.raw.cadrage] ?? 28}%"` : ''}>`;
     const AL = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M8 1 3 6l5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>', AR = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>';
-    const gal = (p.raw.galerie || []).map(g => g.image || g).filter(Boolean);
+    const gal = [...(p.raw.galerie || []), ...(p.raw.videos || [])].map(g => g && (g.image || g.video || g)).filter(x => x && typeof x === 'string');
     const sims = gal.length ? gal : t.k === 'P' ? ALL.filter(x => x !== p && x.th.k !== 'D').slice(i, i + 3).map(x => x.img) : [];
     const REM = { 1: ['f3'], 2: ['h3', 'h3'], 3: ['h3', 'big', 'wide'], 4: ['h3', 'wide', 'wide', 'wide'], 5: ['big', 'wide', 'wide', 'wide', 'wide'], 6: ['big', 'wide', 'wide', '', '', 'wide'] };
     const pages = []; for (let k = 0; k < sims.length; k += 6) pages.push(sims.slice(k, k + 6));
     const NAV = n => `<div class="ser-nav"><button type="button" class="ar2" data-d="-1" aria-label="Photos précédentes" disabled>${'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M8 1 3 6l5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>'}</button><span class="mono ser-c">1 / ${n}</span><button type="button" class="ar2" data-d="1" aria-label="Photos suivantes">${'<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>'}</button></div>`;
-    const serie = sims.length ? `<div class="sec-h"><h2>${t.k === 'P' ? 'La <em>série</em>' : 'En <em>images</em>'}</h2>${pages.length > 1 ? NAV(pages.length) : `<span class="mono">${p.c} · ${p.y}</span>`}</div><div class="alb${pages.length > 1 ? ' multi' : ''}" data-n="${sims.length}"><div class="ser-tr">${pages.map((pg, pi) => `<div class="mos ser-pg" aria-label="Photos ${pi * 6 + 1} à ${pi * 6 + pg.length}">${pg.map((im, k) => `<button type="button" class="mt ${REM[pg.length][k]}" data-k="${pi * 6 + k}" aria-label="Agrandir la photo ${pi * 6 + k + 1}"><img src="${im}" alt="" loading="lazy" onload="if(this.naturalHeight>this.naturalWidth)this.style.objectPosition='50% 22%'"></button>`).join('')}</div>`).join('')}</div></div>${pages.length > 1 ? '<p class="mono ser-hint">Faites défiler pour voir la suite de l’album</p>' : ''}` : '';
+    const serie = sims.length ? `<div class="sec-h"><h2>${t.k === 'P' ? 'La <em>série</em>' : 'En <em>images</em>'}</h2>${pages.length > 1 ? NAV(pages.length) : `<span class="mono">${p.c} · ${p.y}</span>`}</div><div class="alb${pages.length > 1 ? ' multi' : ''}" data-n="${sims.length}"><div class="ser-tr">${pages.map((pg, pi) => `<div class="mos ser-pg" aria-label="Photos ${pi * 6 + 1} à ${pi * 6 + pg.length}">${pg.map((im, k) => `<button type="button" class="mt ${REM[pg.length][k]}" data-k="${pi * 6 + k}" aria-label="Agrandir la photo ${pi * 6 + k + 1}">${/\.(mp4|webm|mov|m4v)(\?|$)/i.test(im) ? `<video src="${im}#t=0.1" muted loop playsinline autoplay preload="metadata" aria-label="${ALT(p, pi * 6 + k + 1)}"></video><span class="vplay" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg></span>` : `<img src="${im}" alt="${ALT(p, pi * 6 + k + 1)}" loading="lazy" onload="if(this.naturalHeight>this.naturalWidth)this.style.objectPosition='50% 22%'">`}</button>`).join('')}</div>`).join('')}</div></div>${pages.length > 1 ? '<p class="mono ser-hint">Faites défiler pour voir la suite de l’album</p>' : ''}` : '';
     return `<section class="pj-hero bleed${p.raw.ecrans && p.raw.ecrans.length ? ' web' : ''}">${media}<div class="in th-in">${crumbs([['Accueil', '#projets'], [t.n, '#' + t.route], [p.t]])}
       <h1 class="ptitle${p.t.length > 32 ? ' long' : ''}">${p.t}</h1>${t.k === 'V' ? '<button class="pj-film" type="button" id="pjFilm"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg></i>Voir le film</button>' : ''}
       
@@ -2724,8 +2733,9 @@ ${foot(t, 6)}`; }
     if (k === 'V') { E.t = 0; E.idx = -1; showClip(0); } else { requestAnimationFrame(layoutStack); } }
   function unmount() { if (!mounted) return; mounted.hidden = true; box.appendChild(mounted); E.media.forEach(m => m.tagName === 'VIDEO' && m.pause()); mounted = null; }
   function route() {
-    const h = location.hash.slice(1);
-    const t = TH.find(x => x.route === h), p = h.startsWith('projet-') && ALL.find(x => x.s === h.slice(7));
+    const h = (() => { const r = location.hash.slice(1); try { return decodeURIComponent(r); } catch (e) { return r; } })();
+    const NS = v => String(v || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const t = TH.find(x => x.route === h), p = h.startsWith('projet-') && (ALL.find(x => x.s === h.slice(7)) || ALL.find(x => NS(x.s) === NS(h.slice(7))));
     const legal = h === 'mentions-legales', lost = !t && !p && h.startsWith('projet-');
     if (t || p || h === 'a-propos' || legal || lost) {
       window.introFinish?.();
@@ -2739,9 +2749,11 @@ ${foot(t, 6)}`; }
         if (S.length && window.freeSecHTML) { const html = S.map(window.freeSecHTML).join(''), c = page.querySelector('.pcta2'); const w = document.createElement('div'); w.className = 'free-wrap bleed'; w.innerHTML = html; if (c) c.before(w); else page.append(w); } }
       home.hidden = true; page.hidden = false; document.documentElement.classList.add('pageview'); scrollTo(0, 0); mark(t ? t.k : p ? p.th.k : null);
       document.documentElement.classList.add('scrolled'); document.title = `${t ? t.n : p ? p.t : legal ? 'Mentions légales' : lost ? 'Page introuvable' : 'À propos'} · Cynthia.inmotion`;
+      { const P0 = (window.SEO || {}).pages || {}, k0 = t ? '/' + t.route + '/' : p ? '/projets/' + p.s + '/' : h === 'a-propos' ? '/a-propos/' : '', x = P0[k0]; if (x) { document.title = x.title; const md = document.querySelector('meta[name="description"]'); if (md) md.content = x.desc; } }
       page.querySelector('h1')?.setAttribute('tabindex', '-1'); page.querySelector('h1')?.focus({ preventScroll: true });
     } else if (home.hidden) {
       unmount(); home.hidden = false; page.hidden = true; page.innerHTML = ''; document.documentElement.classList.remove('pageview'); document.title = C.general.site_titre || 'Cynthia.inmotion';
+      { const x = ((window.SEO || {}).pages || {})['/']; if (x) { document.title = x.title; const md = document.querySelector('meta[name="description"]'); if (md) md.content = x.desc; } }
       window.introFinish?.();
       const target = h && document.getElementById(h); if (target) requestAnimationFrame(() => target.scrollIntoView()); else scrollTo(0, 0);
     }
@@ -3000,6 +3012,7 @@ window.__boot2 = () => {
   try {
     await Promise.all(F.map(async f => { const r = await fetch(`content/${f}.json`, { cache: 'no-cache' }); if (!r.ok) throw new Error(f); C[f] = await r.json(); }));
   } catch (e) { document.body.insertAdjacentHTML('afterbegin', '<p style="position:fixed;z-index:99;inset:auto 12px 12px;background:#C8102E;color:#fff;padding:12px 16px;border-radius:10px;font:14px sans-serif">Le contenu du site n’a pas pu être chargé (' + e.message + '). Ouvrez le site depuis son adresse web, pas en double-cliquant sur le fichier.</p>'); return; }
+  try { const r = await fetch('content/seo.json', { cache: 'no-cache' }); if (r.ok) window.SEO = await r.json(); } catch (e) {}
   window.C = C;
   window.applyContent(C); window.__boot1(); window.__boot2(); window.__route(); window.__bgpAdd && window.__bgpAdd();
 })();
