@@ -1,5 +1,6 @@
 {
   "bandeau": "Ils me font confiance",
+  "liste": [],
   "logos": [
     {
       "nom": "Plateforme Souveraineté alimentaire",
@@ -16,13 +17,16 @@
     {
       "nom": "Tereo",
       "logo": "c/tereo.png"
+    },
+    {
+      "nom": "Geneva Health Forum",
+      "logo": "media/uploads/geneva-health-forum.png"
     }
   ],
-  "etiquette": "Témoignages",
-  "titre": "Leur retour",
+  "boutons": [],
   "accent": "d’expérience",
   "bouton_laisser": "Laisser un témoignage",
+  "titre": "Leur retour",
   "note": "",
-  "boutons": [],
-  "liste": []
+  "etiquette": "Témoignages"
 }
