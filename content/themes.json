@@ -11,10 +11,11 @@
     {
       "cle": "V",
       "nom": "Vidéo",
-      "texte": "Aftermovies, reels, interviews et films de marque : des vidéos pour faire revivre les instants forts et transmettre des émotions.",
+      "texte": "Aftermovies, reels, interviews et films de marque : des vidéos pour faire revivre les instants forts et les émotions de vos événements.",
       "fond": "films/video-banner.mp4",
       "fond_accueil": "",
-      "affiche": "b/video-banner.webp"
+      "affiche": "b/video-banner.webp",
+      "seo_texte": "Vidéaste à Genève, je réalise vos vidéos événementielles, aftermovies, reels Instagram, interviews et films de présentation d’entreprise. Courses à pied, trails, manifestations associatives, séminaires ou institutions : je vous accompagne dans tout le canton de Genève et la région lémanique.\nDu tournage au montage vidéo, j’assure toute la production : préparation, prise de vue, montage, étalonnage et formats adaptés à vos réseaux sociaux, votre site internet ou vos écrans."
     },
     {
       "cle": "D",
@@ -22,7 +23,8 @@
       "texte": "Identités visuelles, sites web et supports graphiques : des créations qui révèlent votre identité et font rayonner vos projets.",
       "fond": "films/design-banner.mp4",
       "fond_accueil": "",
-      "affiche": "b/design-banner.webp"
+      "affiche": "b/design-banner.webp",
+      "seo_texte": "Graphiste et webdesigner à Genève, je crée des identités visuelles et des logos, des affiches et flyers, des visuels pour les réseaux sociaux et des sites internet sur mesure. J’accompagne les associations, les organisateurs d’événements sportifs, les indépendants et les PME du canton de Genève et de la région lémanique.\nDe la charte graphique au site web responsive, je conçois une communication visuelle cohérente sur tous vos supports, en print comme en digital."
     }
   ]
 }
